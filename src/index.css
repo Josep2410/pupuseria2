@@ -1,0 +1,170 @@
+:root {
+  --blue : rgb(0, 136, 255);
+  --yellow : rgb(241, 241, 0);
+}
+
+html {
+  font-size : 16px; 
+  box-sizing: border-box;
+}
+body  {
+  height : 100vh;
+  font-family: 'Roboto', sans-serif;
+  margin : 0;
+}
+
+ul, p, h1, h4{
+  padding : 0;
+  margin : 0;
+}
+
+a{
+  text-decoration: none;
+  color : black;
+}
+
+header  {
+  color : var(--yellow);
+  padding : 8px;
+  background-color: var(--blue);
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .emptyDiv{
+  height : 20px;
+  width : 20px;
+}
+header h1 {
+  font-size : 2.25rem;
+}
+header a svg{
+  height : 1.7rem;
+  width : 1.7rem;
+  color : rgb(21, 21, 21);
+}
+
+/*============ Nav Component=============== */
+
+nav.navRoutes{
+  position : fixed;
+  bottom : 0;
+  left : 0;
+  right : 0;
+  background-color: var(--blue);
+}
+
+nav.navRoutes ul{
+  display : flex;
+  list-style-type: none;
+}
+
+nav.navRoutes ul li {
+  border : 1px solid rgb(10, 10, 10);
+  flex-grow: 1;
+}
+nav.navRoutes ul li:hover {
+ cursor: pointer;
+}
+
+nav.navRoutes ul li a {
+  color : var(--yellow);
+  display : flex;
+  flex-direction: column;
+  align-items: center;
+  padding : 1.5dvh 0px;
+}
+nav.navRoutes ul li a p{
+  font-size : 1.15rem;
+}
+
+nav.navRoutes ul li a .svg{
+  height: 2rem;
+  width: 2rem;
+}
+
+/* ============= Food Component ============ */
+
+main.itemsContainer{
+  padding : 10px 20px 100px 20px;
+}
+
+main.itemsContainer nav.navTabs{
+  padding : 8px;
+  display : flex;
+}
+
+main.itemsContainer nav.navTabs > *{
+  flex-grow: 1;
+  text-align: center;
+  font-size : .9rem;
+}
+
+
+/* ============= FoodDetails Component ============ */
+
+.itemContainer{
+  margin-top : 15px;
+  display : flex;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 1px rgb(163, 163, 163) ;
+}
+
+.itemContainer img{
+  height : 15vh;
+  width: 35vw;
+  object-fit: cover;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+div.itemInfo{
+  padding : 10px 20px;
+  flex-grow: 1;
+}
+
+div.itemInfo h4{
+  font-size : .8rem;
+}
+
+
+/*  ================= Media Queries ==============*/
+
+@media only screen and (min-width: 695px) {
+
+  header {
+    padding : 20px;
+  }
+  header h1{
+    font-size : 4rem;
+  }
+  nav.navRoutes{
+    position : static;
+  }
+  
+  nav.navRoutes ul li{
+    border : none;
+  }
+  nav.navRoutes ul li a {
+    flex-direction: row;
+    justify-content: center;
+  }
+  nav.navRoutes ul li a > *{
+    flex-grow: 1;
+  }
+  nav.navRoutes ul li a p{
+    font-size : 1.25rem;
+  }
+  nav.navRoutes ul li a .svg{
+    height: 2.3rem;
+    width: 2.3rem;
+  }
+}
+
+
+/* @media only screen and (min-width: 940px) {
+
+} */
