@@ -1,11 +1,15 @@
 import React from 'react'
 import Item from '../components/Item'
-import {Link, useLocation} from 'react-router-dom'
+import {Link, useLocation, useSearchParams} from 'react-router-dom'
  
-export default function Victual({displayItems, categories}) {
+export default function Victual({victualItems, categories}) {
   const location = useLocation()
   const title = location.pathname.slice(1).toUpperCase()
-
+  const [searchParams, setSearchParams] = useSearchParams() 
+  const displayFilter = searchParams.get('display')
+  const displayItems = displayFilter 
+    ? victualItems.filter(item => item.category === displayFilter || item.type === displayFilter)
+    : victualItems
   const filterTabs = categories.map(category =>(
     <Link to={`?display=${category}`}>{category}</Link>))
 

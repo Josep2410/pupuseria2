@@ -86,7 +86,7 @@ nav.navRoutes ul li a .svg{
   width: 2rem;
 }
 
-/* ============= Food Component ============ */
+/* ============= Victual Component ============ */
 
 h1.title{
   font-size : 1.15rem;
@@ -110,7 +110,7 @@ main.itemsContainer nav.navTabs > *{
 }
 
 
-/* ============= FoodDetails Component ============ */
+/* ============= Item Component ============ */
 
 .itemContainer{
   margin-top : 15px;
