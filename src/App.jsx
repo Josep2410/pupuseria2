@@ -4,7 +4,7 @@ import { createBrowserRouter , createRoutesFromElements, Route, RouterProvider, 
 import Home from './routes/Home'
 import Popular from './routes/Popular'
 import Food from './routes/Food'
-import FoodDetails from './routes/FoodDetails'
+import ItemDetails from './routes/ItemDetails'
 import Drinks from './routes/Drinks'
 import Cart from './routes/Cart'
 import Profile from './routes/Profile'
@@ -20,9 +20,11 @@ function App() {
         <Route index element={<Navigate to='home' replace/>}/>
         <Route path="home" element={<Home />}/>
         <Route path="popular" element={<Popular />}/>
+        <Route path="popular/:id" element={<ItemDetails /> } />
         <Route path="food" element={<Food />} />
-        <Route path="food/:id" element={<FoodDetails/> } />
+        <Route path="food/:id" element={<ItemDetails/> } />
         <Route path="drinks" element={<Drinks/>}/>
+        <Route path="drinks/:id" element={<ItemDetails/> } />
         <Route path="profile" element={<Profile/>}/>
         <Route path="cart" element={<Cart/>}/>
         <Route path="*" element={<Missing />}/>

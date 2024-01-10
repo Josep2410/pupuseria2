@@ -88,6 +88,11 @@ nav.navRoutes ul li a .svg{
 
 /* ============= Food Component ============ */
 
+h1.title{
+  font-size : 1.15rem;
+  font-weight: 500;
+}
+
 main.itemsContainer{
   padding : 10px 20px 100px 20px;
 }
@@ -95,6 +100,7 @@ main.itemsContainer{
 main.itemsContainer nav.navTabs{
   padding : 8px;
   display : flex;
+ 
 }
 
 main.itemsContainer nav.navTabs > *{
@@ -124,6 +130,9 @@ main.itemsContainer nav.navTabs > *{
 div.itemInfo{
   padding : 10px 20px;
   flex-grow: 1;
+  display : flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 div.itemInfo h4{

@@ -6,7 +6,7 @@ export default function Item({item}) {
       <img src={item.img} alt={`picture of ${item.item}`} />
       <div className="itemInfo">
         <h4>{item.item}</h4>
-        <span>{item.price}</span>
+        <span>${item.price}</span>
       </div>
     </section>
   )
