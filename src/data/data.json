@@ -5,6 +5,7 @@
       "type": "food",
       "category": "breakfast",
       "item": "Huevos picados (revueltos)",
+      "popular": true,
       "price": 7.99,
       "img": "https://i.pinimg.com/736x/1f/75/6b/1f756baf244ea641d4eb3bdd210a156b.jpg"
     },
@@ -21,6 +22,7 @@
       "type": "food",
       "category": "breakfast",
       "item": "Plantanos frijolitos",
+      "popular": true,
       "price": 5.99,
       "img": "https://www.trendeing.com/wp-content/uploads/2017/03/3.6.17-5.JPG.17-5-1000x667.jpg"
     },
@@ -53,6 +55,7 @@
       "type": "food",
       "category": "entree",
       "item": "Pupusas (2)",
+      "popular": true,
       "price": 5.99,
       "subOptions": [
         "queso",
@@ -87,6 +90,7 @@
       "type": "food",
       "category": "entree",
       "item": "Tamal Pisque (3)",
+      "popular": true,
       "price": 5.99,
       "img": "https://www.196flavors.com/wp-content/uploads/2019/01/tamales-pisques-1.jpg"
     },
@@ -95,6 +99,7 @@
       "type": "food",
       "category": "entree",
       "item": "Gallina India",
+      "popular": true,
       "price": 6.99,
       "img": "https://live.staticflickr.com/7093/7358518340_4f02c26a20_h.jpg"
     },
@@ -126,6 +131,7 @@
       "type": "food",
       "category": "entree",
       "item": "Tacos mexicanos (3)",
+      "popular": true,
       "subOptions": [
         "Al Pastor",
         "Barbacoa",
@@ -142,13 +148,16 @@
     {
       "id": 15,
       "type": "drinks",
+      "category": "cold",
       "item": "Fresco Horchata",
+      "popular": true,
       "price": 1.99,
       "img": "https://travelfoodatlas.com/wp-content/uploads/2022/10/Fresh-Horchata-768x512.jpg.webp"
     },
     {
       "id": 16,
       "type": "drinks",
+      "category": "cold",
       "item": "Fresco Limonada",
       "price": 1.99,
       "img": "https://www.blossmangas.com/wp-content/uploads/2020/05/Lemonade-1-1.jpg"
@@ -156,7 +165,9 @@
     {
       "id": 17,
       "type": "drinks",
+      "category": "cold",
       "item": "Agua Fresca",
+      "popular": true,
       "price": 1.75,
       "subOptions": [
         "sandia",
@@ -173,6 +184,7 @@
       "id": 18,
       "type": "drinks",
       "item": "agua",
+      "category": "cold",
       "price": 0.99,
       "img": "https://www.riverkeeper.org/wp-content/uploads/2018/04/bottled-water-credit-CC-Myrtle-Beach-TheDigitel-viaFlickr-modified-1000-650x333.jpg"
     },
@@ -180,6 +192,7 @@
       "id": 19,
       "type": "drinks",
       "item": "cafe",
+      "category": "hot",
       "price": 2.25,
       "img": "https://media.cnn.com/api/v1/images/stellar/prod/150929101049-black-coffee-stock.jpg?q=x_3,y_1231,h_1684,w_2993,c_crop/h_540,w_960/f_webp"
     },
@@ -187,6 +200,7 @@
       "id": 20,
       "type": "drinks",
       "item": "ice tea",
+      "category": "cold",
       "price": 1.99,
       "img": "https://sugarspunrun.com/wp-content/uploads/2022/05/Easy-sweet-tea-recipe-4-of-6.jpg"
     },
@@ -203,6 +217,7 @@
       "type": "food",
       "category": "dessert",
       "item": "Tres Leches",
+      "popular": true,
       "price": 3.99,
       "img": "https://blog.amigofoods.com/wp-content/uploads/2019/07/Tres-leche-cake.jpg"
     },

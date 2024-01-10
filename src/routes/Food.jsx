@@ -8,7 +8,6 @@ export default function Food() {
   const [foodItems, setFoodItems] = useState([])
   const [searchParams, setSearchParams] = useSearchParams()
   const displayFilter = searchParams.get('display')
-  console.log(displayFilter)
 
   useEffect(()=> {
     setFoodItems(menuItems.filter(item => item.type === 'food'))

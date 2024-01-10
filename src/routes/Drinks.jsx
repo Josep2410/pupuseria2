@@ -6,25 +6,28 @@ import Item from '../components/Item'
 export default function Drinks() {
   const {menuItems} = useContext(Context)
   const [drinks, setDrinks] = useState([])
-
+  const [searchParams, setSearchParams] = useSearchParams()
+  const displayFilter = searchParams.get('display')
   
   useEffect(()=> {
     setDrinks(menuItems.filter(item => item.type === 'drinks'))
   }, [menuItems])
 
+  const displayItems = displayFilter
+    ? drinks.filter(item => item.category === displayFilter)
+    : drinks
   return (
     <main className="itemsContainer">
       <nav className="navTabs">
-        <p>All</p>
-        <p>Agua Fresca</p>
-        <p>Beer</p>
-        <p>Others</p>
+        <Link to=".">All</Link>
+        <Link to="?display=cold">Cold</Link>
+        <Link to="?display=hot">Hot</Link>
       </nav>
       {
-        drinks.length ? (drinks.map(drinkObj=>(
+        displayItems.length ? (displayItems.map(drinkObj=>(
           <Link 
               to={`${drinkObj.id}`}
-              state={drinks}
+              state={displayItems}
               key={drinkObj.id}
               >
                 <Item  item={drinkObj}/>
