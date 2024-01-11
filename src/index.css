@@ -89,8 +89,8 @@ nav.navRoutes ul li a .svg{
 /* ============= Victual Component ============ */
 
 h1.title{
-  font-size : 1.15rem;
-  font-weight: 500;
+  font-size : 1.5rem;
+  font-weight: 700;
 }
 
 main.itemsContainer{
@@ -101,14 +101,25 @@ main.itemsContainer nav.navTabs{
   padding : 8px;
   display : flex;
  
-}
-
+} 
 main.itemsContainer nav.navTabs > *{
-  flex-grow: 1;
-  text-align: center;
-  font-size : .9rem;
+flex-grow: 1;
+text-align: center;
 }
 
+main.itemsContainer nav.navTabs > *.tabs{
+  font-size : 1.4rem;
+  font-weight: 400;
+}
+
+main.itemsContainer nav.navTabs > .activeTab{
+  font-size : 1.45rem;
+  font-weight: 500;
+}
+
+nav.navTabs p:hover{
+  cursor: pointer;
+}
 
 /* ============= Item Component ============ */
 
@@ -136,7 +147,12 @@ div.itemInfo{
 }
 
 div.itemInfo h4{
-  font-size : .8rem;
+  font-size : 1.1rem;
+  font-weight: 400;
+}
+
+div.itemInfo span{
+  font-size : 1rem;
 }
 
 

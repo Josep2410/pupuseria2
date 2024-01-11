@@ -1,5 +1,6 @@
 import React from 'react'
 import Item from '../components/Item'
+import { upperCaseWord } from '../utils/utils'
 import {Link, useLocation, useSearchParams} from 'react-router-dom'
  
 export default function Victual({victualItems, categories}) {
@@ -10,14 +11,18 @@ export default function Victual({victualItems, categories}) {
   const displayItems = displayFilter 
     ? victualItems.filter(item => item.category === displayFilter || item.type === displayFilter)
     : victualItems
-  const filterTabs = categories.map(category =>(
-    <Link to={`?display=${category}`}>{category}</Link>))
+  const filterTabs = categories.map((category,indx) =>(
+    <p 
+    className={displayFilter===category ? "activeTab" : "tabs"}
+      onClick={() => setSearchParams({display : category})}
+      key={indx}>
+        {upperCaseWord(category)}</p>))
 
   return (
     <main className="itemsContainer">
-      <h1>{title}</h1>
+      <h1 className="title">{title}</h1>
       <nav className="navTabs">
-        <Link to=".">All</Link>
+        <Link to="." className={!displayFilter ? "activeTab" : "tabs"}>All</Link>
        {filterTabs}
       </nav>
       {
