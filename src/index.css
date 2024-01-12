@@ -3,9 +3,10 @@
   --secondaryBlue : rgb(94, 189, 240);
   --yellow : rgb(241, 241, 0);
   --gold :  rgb(212,175,55);
-  --primaryLettering : black;
-  --secondaryLettering : rgb(119, 119, 119);
-  --tertiaryLettering : rgb(160, 136, 132);
+  --black : black;
+  --primaryGrey : rgb(119, 119, 119);
+  --secondaryGrey : rgb(160, 136, 132);
+  --ternaryGrey : rgb(202, 201, 201);
   --linkColor : #551A8B;
 }
 
@@ -38,7 +39,7 @@ h3{
 
 a {
   text-decoration: none;
-  color : var(--primaryLettering);
+  color : var(--black);
 }
 
 .svg{
@@ -52,6 +53,16 @@ a {
 
 .disappear{
   display : none;
+}
+
+button{
+  width : 100%;
+  height: 7%;
+  padding : 8px 0px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-style: none;
+  border-radius: 5px;
 }
 
 /*  ============ Header Component ============ */
@@ -75,7 +86,7 @@ header .emptyDiv{
 header a svg{
   height : 2rem;
   width : 2rem;
-  color : var(--primaryLettering);
+  color : var(--black);
   padding-top: 5px;
 }
 
@@ -101,7 +112,7 @@ nav.navRoutes ul{
 }
 
 nav.navRoutes ul li {
-  border : 1px solid var(--primaryLettering);
+  border : 1px solid var(--black);
   flex-grow: 1;
 }
 nav.navRoutes ul li:hover, nav.navTabs p:hover , .itemDetailsContainer  button:hover {
@@ -140,7 +151,7 @@ text-align: center;
 main.itemsContainer nav.navTabs > *.tabs{
   font-size : 1.4rem;
   font-weight: 400;
-  color : var(--secondaryLettering);
+  color : var(--primaryGrey);
 }
 
 main.itemsContainer nav.navTabs > .activeTab{
@@ -154,7 +165,7 @@ main.itemsContainer nav.navTabs > .activeTab{
   margin-top : 15px;
   display : flex;
   border-radius: 8px;
-  box-shadow: 0 0 5px 1px var(--tertiaryLettering) ;
+  box-shadow: 0 0 5px 1px var(--secondaryGrey) ;
 }
 
 .itemContainer img{
@@ -188,9 +199,10 @@ div.itemInfo .svg{
 }
 
 div.itemInfo > p.price{
-  font-size : 1em;
+  font-size : 1.3em;
   padding : 15px 0;
 }
+
 
 div.itemInfo a.moreDetails{
   text-decoration: underline;
@@ -239,7 +251,7 @@ div.itemDetailsContainer >  img {
   height: 25%;
   object-fit: cover;
   border-radius: 15px;
-  box-shadow: 0 0 5px 1px var(--tertiaryLettering);
+  box-shadow: 0 0 5px 1px var(--secondaryGrey);
   overflow: hidden;
 }
 .itemDetailsInfo{
@@ -256,28 +268,20 @@ div.itemDetailsContainer >  img {
 
 span.ingredients{
   font-size: 1.35rem;
-  color: var(--secondaryLettering);
+  color: var(--primaryGrey);
 }
 
-.itemDetailsContainer  button{
-  width : 100%;
-  height: 7%;
-  padding : 8px 0px;
-  font-size: 1.2rem;
-  font-weight: 500;
-  border-style: none;
-  border-radius: 5px;
-}
+
 
 
 
 .addToCart{
   background-color: var(--secondaryBlue);
-  color : var(--primaryLettering);
+  color : var(--black);
 }
 
 .removeFromCart{
-  background-color: var(--tertiaryLettering);
+  background-color: var(--secondaryGrey);
   color : white;
 
 }
@@ -285,8 +289,51 @@ span.ingredients{
 /* ======= Cart Component ================ */
 
 section.cartPage {
-  padding : 20px;
+  padding : 20px 20px 120px 20px;
 }
+
+section.cartPage > form > *:not(:first-child){
+  margin-top : 20px;
+}
+
+section.cartPage button{
+  background-color : var(--ternaryGrey);
+}
+
+/* ===== Cart Component > DisplayTotal Component=== */
+.totalPage{
+  padding : 0px 20px;
+}
+
+.totalPage > p{
+  display : flex;
+  font-size: 1.2rem;
+  padding : 5px;
+}
+
+.totalPage > p:nth-child(-n+2){
+  border-bottom: 1px dotted var(--primaryGrey);
+}
+
+.totalPage > div{
+  width: 100%;
+  height : .3rem;
+  background-color: black;
+
+}
+
+.totalPage > p >*:first-child{
+  flex-grow: 1;
+}
+
+/* .totalPage > p:not(:last-child){
+
+}
+ */
+ 
+ .totalPage >* {
+  margin-top : 10px;
+ }
 
 /*  ================= Media Queries ==============*/
 

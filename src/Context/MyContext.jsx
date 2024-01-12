@@ -12,14 +12,27 @@ export function MyContext({children}){
 
 
   const addItemToCart = (newItem) => {
-    /* setItemsInCart([...itemsInCart, newItem]) */
-    console.log('adding item...')
+    const existingItem = itemsInCart.find(item => item.id === newItem.id)
+    if(existingItem){
+      const others = itemsInCart.filter(item => item.id !== existingItem.id)
+      setItemsInCart([...others, {...existingItem, numberInCart : existingItem.numberInCart + 1}])
+    }
+   else{
+    setItemsInCart([...itemsInCart, {...newItem, numberInCart : 1}])
+   }
   }
+
   const removeItemFromCart = (item) => { 
-    /*   const {id} = item
-    const others = itemsInCart.filter(item => item.id !== id)
-    setItemsInCart(others) */
-    console.log('removing item...')
+   const existingItem = itemsInCart.find(obj => obj.id === item.id)
+   if(existingItem){
+    const others = itemsInCart.filter(obj => obj.id !== existingItem.id)
+    existingItem.numberInCart >1 
+      ? setItemsInCart([...others, {...existingItem , numberInCart : existingItem.numberInCart - 1}])
+      : setItemsInCart([...others])
+   }
+   else{
+    console.log('Item is not in cart')
+   }
   }
   const clearCart = () => {
     setItemsInCart([])
