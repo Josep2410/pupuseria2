@@ -5,6 +5,7 @@
       "type": "food",
       "category": "breakfast",
       "item": "Huevos picados (revueltos)",
+      "numberInCart": 0,
       "popular": true,
       "price": 7.99,
       "img": "https://i.pinimg.com/736x/1f/75/6b/1f756baf244ea641d4eb3bdd210a156b.jpg"
@@ -14,6 +15,7 @@
       "type": "food",
       "category": "breakfast",
       "item": "Huevos estrellados (fritos)",
+      "numberInCart": 0,
       "price": 6.99,
       "img": "https://cheforopeza.com.mx/wp-content/uploads/2017/11/huevos-estrellados-sobre-nopal-y-salsa-roja-recetas-chef-oropeza-jpg-940x450.jpg"
     },
@@ -22,6 +24,7 @@
       "type": "food",
       "category": "breakfast",
       "item": "Plantanos frijolitos",
+      "numberInCart": 0,
       "popular": true,
       "price": 5.99,
       "img": "https://www.trendeing.com/wp-content/uploads/2017/03/3.6.17-5.JPG.17-5-1000x667.jpg"
@@ -31,6 +34,7 @@
       "type": "food",
       "category": "breakfast",
       "item": "Huevos Rancheros",
+      "numberInCart": 0,
       "price": 6.99,
       "img": "https://gran.luchito.com/wp-content/uploads/2018/10/Huevos-Rancheros-6-1-660x500.jpg"
     },
@@ -39,6 +43,7 @@
       "type": "food",
       "category": "breakfast",
       "item": "Chilaquiles Verdes",
+      "numberInCart": 0,
       "price": 7.99,
       "img": "https://gran.luchito.com/wp-content/uploads/2023/05/Landscape-Hero-Chilaquiles-Verdes-660x500.jpg"
     },
@@ -47,6 +52,7 @@
       "type": "food",
       "category": "breakfast",
       "item": "Huevos picados con fruta",
+      "numberInCart": 0,
       "price": 4.99,
       "img": "https://www.rujamar.com/wp-content/uploads/2022/05/Copia-de-Copia-de-Copia-de-Copia-de-Copia-de-Copia-de-PROTEINA-DEL-HUEVO-4-1024x1024.jpg"
     },
@@ -55,6 +61,7 @@
       "type": "food",
       "category": "entree",
       "item": "Pupusas (2)",
+      "numberInCart": 0,
       "popular": true,
       "price": 5.99,
       "subOptions": [
@@ -74,6 +81,7 @@
       "type": "food",
       "category": "entree",
       "item": "Corn Atole",
+      "numberInCart": 0,
       "price": 4.99,
       "img": "https://travelfoodatlas.com/wp-content/uploads/2022/10/Corn-Atole-768x512.jpg.webp"
     },
@@ -90,6 +98,7 @@
       "type": "food",
       "category": "entree",
       "item": "Tamal Pisque (3)",
+      "numberInCart": 0,
       "popular": true,
       "price": 5.99,
       "img": "https://www.196flavors.com/wp-content/uploads/2019/01/tamales-pisques-1.jpg"
@@ -99,6 +108,7 @@
       "type": "food",
       "category": "entree",
       "item": "Gallina India",
+      "numberInCart": 0,
       "popular": true,
       "price": 6.99,
       "img": "https://live.staticflickr.com/7093/7358518340_4f02c26a20_h.jpg"
@@ -116,6 +126,7 @@
       "type": "food",
       "category": "entree",
       "item": "Enchiladas (3)",
+      "numberInCart": 0,
       "price": 6.99,
       "subOptions": [
         "Enfrijoladas",
@@ -131,6 +142,7 @@
       "type": "food",
       "category": "entree",
       "item": "Tacos mexicanos (3)",
+      "numberInCart": 0,
       "popular": true,
       "subOptions": [
         "Al Pastor",
@@ -150,6 +162,7 @@
       "type": "drinks",
       "category": "cold",
       "item": "Fresco Horchata",
+      "numberInCart": 0,
       "popular": true,
       "price": 1.99,
       "img": "https://travelfoodatlas.com/wp-content/uploads/2022/10/Fresh-Horchata-768x512.jpg.webp"
@@ -167,6 +180,7 @@
       "type": "drinks",
       "category": "cold",
       "item": "Agua Fresca",
+      "numberInCart": 0,
       "popular": true,
       "price": 1.75,
       "subOptions": [
@@ -184,6 +198,7 @@
       "id": 18,
       "type": "drinks",
       "item": "agua",
+      "numberInCart": 0,
       "category": "cold",
       "price": 0.99,
       "img": "https://www.riverkeeper.org/wp-content/uploads/2018/04/bottled-water-credit-CC-Myrtle-Beach-TheDigitel-viaFlickr-modified-1000-650x333.jpg"
@@ -200,6 +215,7 @@
       "id": 20,
       "type": "drinks",
       "item": "ice tea",
+      "numberInCart": 0,
       "category": "cold",
       "price": 1.99,
       "img": "https://sugarspunrun.com/wp-content/uploads/2022/05/Easy-sweet-tea-recipe-4-of-6.jpg"
@@ -209,6 +225,7 @@
       "type": "food",
       "category": "dessert",
       "item": "Quesadilla",
+      "numberInCart": 0,
       "price": 2.99,
       "img": "https://blog.amigofoods.com/wp-content/uploads/2020/09/salvadoran-quesdailla.jpg"
     },
@@ -217,6 +234,7 @@
       "type": "food",
       "category": "dessert",
       "item": "Tres Leches",
+      "numberInCart": 0,
       "popular": true,
       "price": 3.99,
       "img": "https://blog.amigofoods.com/wp-content/uploads/2019/07/Tres-leche-cake.jpg"
@@ -226,6 +244,7 @@
       "type": "food",
       "category": "dessert",
       "item": "Torta Maria Luisa",
+      "numberInCart": 0,
       "price": 2.99,
       "img": "https://blog.amigofoods.com/wp-content/uploads/2023/03/torta-maria-luisa.jpg"
     },
@@ -233,6 +252,7 @@
       "id": 25,
       "type": "food",
       "category": "dessert",
+      "numberInCart": 0,
       "item": "Semita",
       "price": 1.99,
       "img": "https://cdn0.recetasgratis.net/es/posts/9/1/8/pan_de_semitas_75819_600.webp"

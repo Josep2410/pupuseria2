@@ -6,8 +6,7 @@ import Context from '../Context/MyContext'
 
 export default function DefaultLayout() {
   
-  const {width} = useContext(Context)
- 
+  const {width} = useContext(Context) 
   return (
    <> 
     <Header />

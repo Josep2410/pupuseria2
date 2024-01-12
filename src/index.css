@@ -1,6 +1,12 @@
 :root {
   --blue : rgb(0, 136, 255);
+  --secondaryBlue : rgb(94, 189, 240);
   --yellow : rgb(241, 241, 0);
+  --gold :  rgb(212,175,55);
+  --primaryLettering : black;
+  --secondaryLettering : rgb(119, 119, 119);
+  --tertiaryLettering : rgb(160, 136, 132);
+  --linkColor : #551A8B;
 }
 
 html {
@@ -13,19 +19,46 @@ body  {
   margin : 0;
 }
 
-ul, p, h1, h4{
+ul, p, h1, h2 , h3{
   padding : 0;
   margin : 0;
 }
 
-a{
-  text-decoration: none;
-  color : black;
+ h1 {
+  font-size : 2.5rem;
 }
+
+h2{
+  font-size : 1.75rem;
+}
+
+h3{
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color : var(--primaryLettering);
+}
+
+.svg{
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.hide{
+  visibility: hidden;
+}
+
+.disappear{
+  display : none;
+}
+
+/*  ============ Header Component ============ */
 
 header  {
   color : var(--yellow);
-  padding : 8px;
+  padding : 20px;
   background-color: var(--blue);
   font-family: 'Dancing Script', cursive;
   font-weight: 700;
@@ -38,13 +71,18 @@ header .emptyDiv{
   height : 20px;
   width : 20px;
 }
-header h1 {
-  font-size : 2.25rem;
-}
+
 header a svg{
-  height : 1.7rem;
-  width : 1.7rem;
-  color : rgb(21, 21, 21);
+  height : 2rem;
+  width : 2rem;
+  color : var(--primaryLettering);
+  padding-top: 5px;
+}
+
+/* ====== Title Component ========== */
+
+.title{
+  padding : 10px;
 }
 
 /*============ Nav Component=============== */
@@ -63,10 +101,10 @@ nav.navRoutes ul{
 }
 
 nav.navRoutes ul li {
-  border : 1px solid rgb(10, 10, 10);
+  border : 1px solid var(--primaryLettering);
   flex-grow: 1;
 }
-nav.navRoutes ul li:hover {
+nav.navRoutes ul li:hover, nav.navTabs p:hover , .itemDetailsContainer  button:hover {
  cursor: pointer;
 }
 
@@ -81,19 +119,11 @@ nav.navRoutes ul li a p{
   font-size : 1.15rem;
 }
 
-nav.navRoutes ul li a .svg{
-  height: 2rem;
-  width: 2rem;
-}
+
 
 /* ============= Victual Component ============ */
 
-h1.title{
-  font-size : 1.5rem;
-  font-weight: 700;
-}
-
-main.itemsContainer{
+main.itemsContainer, div.itemDetailsContainer{
   padding : 10px 20px 100px 20px;
 }
 
@@ -110,15 +140,12 @@ text-align: center;
 main.itemsContainer nav.navTabs > *.tabs{
   font-size : 1.4rem;
   font-weight: 400;
+  color : var(--secondaryLettering);
 }
 
 main.itemsContainer nav.navTabs > .activeTab{
   font-size : 1.45rem;
   font-weight: 500;
-}
-
-nav.navTabs p:hover{
-  cursor: pointer;
 }
 
 /* ============= Item Component ============ */
@@ -127,11 +154,11 @@ nav.navTabs p:hover{
   margin-top : 15px;
   display : flex;
   border-radius: 8px;
-  box-shadow: 0 0 5px 1px rgb(163, 163, 163) ;
+  box-shadow: 0 0 5px 1px var(--tertiaryLettering) ;
 }
 
 .itemContainer img{
-  height : 15vh;
+  height : 20vh;
   width: 35vw;
   object-fit: cover;
   border-bottom-left-radius: 8px;
@@ -143,18 +170,123 @@ div.itemInfo{
   flex-grow: 1;
   display : flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
+}
+div.itemInfo > div{
+  display : flex;
 }
 
-div.itemInfo h4{
-  font-size : 1.1rem;
+div.itemInfo div p{
+  font-size : 2.4vh;
   font-weight: 400;
+  flex-grow: 1;
 }
 
-div.itemInfo span{
-  font-size : 1rem;
+div.itemInfo .svg{
+  height : 1.5rem;
+  width: 1.5rem;
 }
 
+div.itemInfo > p.price{
+  font-size : 1em;
+  padding : 15px 0;
+}
+
+div.itemInfo a.moreDetails{
+  text-decoration: underline;
+  color : var(--linkColor);
+  flex-grow: 1;
+}
+
+/* ============== ItemDetails Component ============= */
+
+div.itemDetailsContainer{
+  height: 700px;
+  padding : 10px 30px 100px 30px;
+  display : flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.itemDetailsContainer section{
+  display : flex;
+  align-items: center;
+  width: 100%;
+}
+.itemDetailsContainer section >*{
+  flex-grow: 1;
+}
+
+.itemDetailsContainer section a{
+  color : var(--secondaryBlue);
+  display : flex;
+  justify-content: center;
+}
+
+.star{
+  color : var(--gold);
+}
+
+div.itemDetailsContainer h3{
+  font-weight: 400;
+  padding : 8px;
+  text-align: center;
+}
+
+div.itemDetailsContainer >  img {
+  width: 90%;
+  height: 25%;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 0 5px 1px var(--tertiaryLettering);
+  overflow: hidden;
+}
+.itemDetailsInfo{
+ height: 20%;
+ display : flex;
+ flex-direction: column;
+ align-items: flex-start;
+  padding : 5px;
+}
+.itemDetailsInfo p{
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+span.ingredients{
+  font-size: 1.35rem;
+  color: var(--secondaryLettering);
+}
+
+.itemDetailsContainer  button{
+  width : 100%;
+  height: 7%;
+  padding : 8px 0px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-style: none;
+  border-radius: 5px;
+}
+
+
+
+.addToCart{
+  background-color: var(--secondaryBlue);
+  color : var(--primaryLettering);
+}
+
+.removeFromCart{
+  background-color: var(--tertiaryLettering);
+  color : white;
+
+}
+
+/* ======= Cart Component ================ */
+
+section.cartPage {
+  padding : 20px;
+}
 
 /*  ================= Media Queries ==============*/
 

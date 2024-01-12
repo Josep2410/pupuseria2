@@ -8,6 +8,22 @@ export function MyContext({children}){
   const {width , height} = useWindowSize()
   const [menuItems, setMenuItems] = useState([])
   const [error, setError] = useState(null)
+  const [itemsInCart , setItemsInCart] = useState([])
+
+
+  const addItemToCart = (newItem) => {
+    /* setItemsInCart([...itemsInCart, newItem]) */
+    console.log('adding item...')
+  }
+  const removeItemFromCart = (item) => { 
+    /*   const {id} = item
+    const others = itemsInCart.filter(item => item.id !== id)
+    setItemsInCart(others) */
+    console.log('removing item...')
+  }
+  const clearCart = () => {
+    setItemsInCart([])
+  }
 
   useEffect(() => {
     const getMenuItems = async () => {
@@ -28,7 +44,10 @@ export function MyContext({children}){
   }, [])
 
   return (
-    <Context.Provider value={{width, menuItems, error}}>
+    <Context.Provider value={{
+      width, menuItems, error, itemsInCart,
+      addItemToCart, removeItemFromCart, clearCart
+      }}>
       {children}
     </Context.Provider>
   )

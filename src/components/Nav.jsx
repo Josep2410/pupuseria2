@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { IoMdHome } from "react-icons/io";
 import { GoStarFill } from "react-icons/go"; // filled star
-/* import { FiStar } from "react-icons/fi";  //unfilled star */
 import { GiTacos } from "react-icons/gi";
 import { LuCupSoda } from "react-icons/lu";
 import { MdAccountCircle } from "react-icons/md";
