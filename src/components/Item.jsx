@@ -22,8 +22,8 @@ export default function Item({item, state = null}) {
           {location.pathname === '/cart'
             ? <p >In Cart : {existingItem.numberInCart}</p>
             : <LinkToItemDetails item={item} state={state}/>}
-          <IoMdAdd onClick={()=>addItemToCart(item)} className="svg"/>
-          <GrSubtract onClick={()=>removeItemFromCart(item)} className="svg" />
+          <IoMdAdd onClick={()=>addItemToCart(item)} className="svg addBtn"/>
+          <GrSubtract onClick={()=>removeItemFromCart(item)} className="svg subtractBtn" />
         </div>
       </div>
     </section>

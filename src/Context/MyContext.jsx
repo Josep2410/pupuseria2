@@ -9,7 +9,7 @@ export function MyContext({children}){
   const [menuItems, setMenuItems] = useState([])
   const [error, setError] = useState(null)
   const [itemsInCart , setItemsInCart] = useState([])
-
+  const [totalCartItems, setTotalCartItems] = useState(itemsInCart.reduce((total , curr) => total + curr.numberInCart , 0))
 
   const addItemToCart = (newItem) => {
     const existingItem = itemsInCart.find(item => item.id === newItem.id)
@@ -56,9 +56,14 @@ export function MyContext({children}){
 
   }, [])
 
+  useEffect(()=> {
+    setTotalCartItems(itemsInCart.reduce((total , curr) => total + curr.numberInCart , 0))
+
+  }, [itemsInCart])
+
   return (
     <Context.Provider value={{
-      width, menuItems, error, itemsInCart,
+      width, menuItems, error, itemsInCart,totalCartItems,
       addItemToCart, removeItemFromCart, clearCart
       }}>
       {children}

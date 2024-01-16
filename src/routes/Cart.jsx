@@ -5,7 +5,7 @@ import Title from '../components/Title'
 import Item from '../components/Item'
 
 export default function Cart() {
-  const {itemsInCart , clearCart} = useContext(Context)
+  const {itemsInCart , totalCartItems,clearCart} = useContext(Context)
 
   const displayCartItems = itemsInCart.sort((a,b) => a.id - b.id).map(obj => <Item key={obj.id} item={obj}/>)
 
@@ -18,7 +18,7 @@ export default function Cart() {
         <form onSubmit={(e)=> e.preventDefault()} >
           {displayCartItems}
           <p onClick={clearCart} style={{color : 'red', textDecoration: 'underline'}}>CLEAR CART</p>
-          <DisplayTotal itemsInCart={itemsInCart}/>
+          <DisplayTotal itemsInCart={itemsInCart} totalCartItems={totalCartItems} />
           <button>Submit</button>
         </form>
         ) 
@@ -33,21 +33,17 @@ export default function Cart() {
 }
 
 
-function DisplayTotal({itemsInCart}){
-  const [totalItems, setTotalItems] = useState(itemsInCart.reduce((total , curr) => total + curr.numberInCart , 0))
+function DisplayTotal({itemsInCart, totalCartItems}){
+
   const subTotal = (Math.round((itemsInCart.reduce((total , curr) => total + (curr.numberInCart * curr.price) , 0)) * 100) /100)
   const tax =  (Math.round((subTotal * .0825) * 100) / 100).toFixed(2)
   const total = (parseInt(tax)+ subTotal)
  
-  useEffect(() => {
-    setTotalItems(itemsInCart.reduce((total , curr) => total + curr.numberInCart , 0))
-  }, [itemsInCart])
-
   return(
     <section className="totalPage">
       <p>
         <span>Total Number of Items :</span> 
-        <span>{totalItems}</span>
+        <span>{totalCartItems}</span>
       </p>
       <p>
         <span>Subtotal :</span> 

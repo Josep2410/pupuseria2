@@ -83,11 +83,27 @@ header .emptyDiv{
   width : 20px;
 }
 
+header a{
+  position :relative
+}
+
 header a svg{
   height : 2rem;
   width : 2rem;
   color : var(--black);
   padding-top: 5px;
+}
+
+span.display{
+  position: absolute;
+  background-color: rgb(252, 2, 2);
+  color : white;
+  padding : 5px 10px;
+  border-radius:50%;
+  right : -12px;
+  top:-12px;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* ====== Title Component ========== */
@@ -208,6 +224,10 @@ div.itemInfo a.moreDetails{
   text-decoration: underline;
   color : var(--linkColor);
   flex-grow: 1;
+}
+
+.addBtn:hover, .subtractBtn:hover{
+  cursor: pointer;
 }
 
 /* ============== ItemDetails Component ============= */

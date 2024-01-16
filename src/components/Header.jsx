@@ -5,7 +5,7 @@ import Context from  '../Context/MyContext'
 
 export default function Header() {
 
- const { itemsInCart} = useContext(Context)
+ const { totalCartItems } = useContext(Context)
  
   return (
     <header>
@@ -14,6 +14,7 @@ export default function Header() {
       <h1>Mi Pupuseria</h1>
       <Link to="cart">
         <FaShoppingCart className="svg cart"/>
+      <span className={totalCartItems > 0 ? 'display' : 'hide'}>{totalCartItems}</span>
       </Link>
     </header>
   )
