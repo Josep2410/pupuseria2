@@ -30,9 +30,6 @@ export function MyContext({children}){
       ? setItemsInCart([...others, {...existingItem , numberInCart : existingItem.numberInCart - 1}])
       : setItemsInCart([...others])
    }
-   else{
-    console.log('Item is not in cart')
-   }
   }
   const clearCart = () => {
     setItemsInCart([])

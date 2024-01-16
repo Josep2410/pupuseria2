@@ -1,4 +1,4 @@
-import React , {useContext, useState, useEffect} from 'react'
+import React , {useContext} from 'react'
 import { Link } from 'react-router-dom'
 import Context from '../Context/MyContext'
 import Title from '../components/Title'
@@ -23,7 +23,7 @@ export default function Cart() {
         </form>
         ) 
         : (
-      <section>
+      <section className='noItems'>
           <h1>No Items in Cart</h1>
           <Link to="/">Return to Home</Link>
       </section>
