@@ -8,10 +8,6 @@ import { MdAccountCircle } from "react-icons/md";
 
 export default function Nav() {
 
-  const drinks ={}
-  const food ={}
-  const popular ={}
-
   return (
     <nav className="navRoutes">
       <ul>
