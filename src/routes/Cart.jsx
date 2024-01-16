@@ -23,10 +23,10 @@ export default function Cart() {
         </form>
         ) 
         : (
-      <>
+      <section>
           <h1>No Items in Cart</h1>
           <Link to="/">Return to Home</Link>
-      </>
+      </section>
         ) }
     </section >
   )

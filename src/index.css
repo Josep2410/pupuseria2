@@ -204,8 +204,8 @@ div.itemInfo > div{
 }
 
 div.itemInfo div p{
-  font-size : 2.4vh;
-  font-weight: 400;
+  font-size : 2.5vh;
+  font-weight: 500;
   flex-grow: 1;
 }
 
@@ -215,12 +215,12 @@ div.itemInfo .svg{
 }
 
 div.itemInfo > p.price{
-  font-size : 1.3em;
+  font-size : 1em;
   padding : 15px 0;
 }
 
 
-div.itemInfo a.moreDetails{
+div.itemInfo a.moreDetails , section.cartPage section a{
   text-decoration: underline;
   color : var(--linkColor);
   flex-grow: 1;
@@ -312,6 +312,14 @@ section.cartPage {
   padding : 20px 20px 120px 20px;
 }
 
+section.cartPage section{
+  padding : 100px;
+  display : flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
 section.cartPage > form > *:not(:first-child){
   margin-top : 20px;
 }
