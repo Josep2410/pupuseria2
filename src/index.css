@@ -112,7 +112,7 @@ span.display{
   padding : 10px;
 }
 
-/*============ Nav Component=============== */
+/*============ Nav Component =============== */
 
 nav.navRoutes{
   position : fixed;
@@ -355,14 +355,62 @@ section.cartPage button{
   flex-grow: 1;
 }
 
-/* .totalPage > p:not(:last-child){
-
-}
- */
  
  .totalPage >* {
   margin-top : 10px;
  }
+
+ /* ====== Login & Create Account Component ========= */
+ section.logIn, section.createAccount {
+  padding : 120px 50px 200px 50px;
+ }
+
+.logInForm ,.createAccountForm{
+  position: relative;
+  display : flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+ 
+ }
+
+.logInForm label, .createAccountForm label{
+  position : absolute;
+  left : -9999px
+}
+.logInForm div, .createAccountForm div{
+  margin-top : 20px;
+  display : flex;
+  flex-direction: column;
+}
+.logInForm  input, .createAccountForm input{
+  padding : 10px;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.logInForm > button, .createAccountForm > button{
+  background-color: var(--secondaryBlue);
+  color : white;
+  padding : 10px 0px;
+  margin-top: 25px;
+}
+
+.logInForm p, .createAccountForm p{
+  margin-top: 15px;
+  color : var(--primaryGrey)
+}
+
+.logInForm p a,  .createAccountForm p a {
+  text-decoration: underline;
+  color : var(--linkColor);
+}
+
+.createAccountForm h4{
+  font-size : 1.2rem;
+}
+
 
 /*  ================= Media Queries ==============*/
 

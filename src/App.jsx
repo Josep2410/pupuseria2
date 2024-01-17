@@ -9,7 +9,12 @@ import Drinks from './routes/Drinks'
 import Cart from './routes/Cart'
 import Profile from './routes/Profile'
 import Missing from './components/Missing'
+import Authenticate from './components/Authenticate'
+import Checkout from './routes/Checkout'
+import Login from './routes/Login'
+import CreateAccount from './routes/CreateAccount'
 import { MyContext } from './Context/MyContext'
+
 
 
 function App() {
@@ -25,8 +30,13 @@ function App() {
         <Route path="food/:id" element={<ItemDetails/> } />
         <Route path="drinks" element={<Drinks/>}/>
         <Route path="drinks/:id" element={<ItemDetails/> } />
-        <Route path="profile" element={<Profile/>}/>
         <Route path="cart" element={<Cart/>}/>
+        <Route element={<Authenticate />}>
+          <Route path="profile" element={<Profile/>}/>
+          <Route path="checkout" element={<Checkout/>}/>
+        </Route>
+        <Route path="login" element={<Login />}/>
+        <Route path="createAccount" element={<CreateAccount />}/>
         <Route path="*" element={<Missing />}/>
       </Route>
   ))

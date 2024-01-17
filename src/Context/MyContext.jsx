@@ -4,9 +4,12 @@ import useWindowSize from '../hooks/useWindowSize'
 const Context = createContext({})
 
 export function MyContext({children}){
-  const baseURL = 'http://localhost:3500'
+  const menuURL = 'http://localhost:3500'
+  const usersURL = 'http://localhost:4000'
+
   const {width , height} = useWindowSize()
   const [menuItems, setMenuItems] = useState([])
+  const [users, setUsers] = useState([])
   const [error, setError] = useState(null)
   const [itemsInCart , setItemsInCart] = useState([])
   const [totalCartItems, setTotalCartItems] = useState(itemsInCart.reduce((total , curr) => total + curr.numberInCart , 0))
@@ -39,7 +42,7 @@ export function MyContext({children}){
     const getMenuItems = async () => {
      try{
       setError(null)
-      const response = await fetch(`${baseURL}/menu`)
+      const response = await fetch(`${menuURL}/menu`)
       if(!response.ok) throw Error('An error occurred')
       const data = await response.json()
       setMenuItems(data)
@@ -49,8 +52,20 @@ export function MyContext({children}){
      }
     }
 
-    getMenuItems()
+    const getUsers = async () => {
+      try{
+        setError(null)
+        const response = await fetch(`${usersURL}/users`)
+        if(!response.ok) throw new Error('Could not fetch users')
+        const data = await response.json()
+        setUsers(data)
+      }catch(err){
+        setError(err.message)
+      }
+    }
 
+    getMenuItems()
+    getUsers()
   }, [])
 
   useEffect(()=> {
@@ -60,8 +75,8 @@ export function MyContext({children}){
 
   return (
     <Context.Provider value={{
-      width, menuItems, error, itemsInCart,totalCartItems,
-      addItemToCart, removeItemFromCart, clearCart
+      width, menuItems, error, itemsInCart,totalCartItems, users, usersURL,
+      addItemToCart, removeItemFromCart, clearCart ,setUsers
       }}>
       {children}
     </Context.Provider>
