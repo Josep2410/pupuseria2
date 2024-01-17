@@ -33,7 +33,7 @@ export default function CreateAccount() {
   const createNewUser = async (email , pwd) => {
     const newUser = {
       id : users.length? users[users.length - 1].id + 1 : 1,
-      email : email,
+      email : email.toLowerCase(),
       password : pwd
     }
     try{
@@ -48,6 +48,9 @@ export default function CreateAccount() {
       console.log('successfully created user')
       setUsers([...users , newUser])
       setCreateAccountSuccessfully(true)
+      setRegisterEmail('')
+      setCreatePassword('')
+      setCheckPWD('')
     }catch(err){
       setOtherErrors(err.message)
     }
