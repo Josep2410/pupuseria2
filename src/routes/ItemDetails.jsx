@@ -12,7 +12,7 @@ export default function FoodDetails() {
   const currentItem = location.state.find(item => (item.id).toString() === id)
 
   return (
-    <div className="itemDetailsContainer">
+    <section className="itemDetailsContainer">
       <section>
         <Link to=".." onClick={() => navigate(-1) } className="backBtn"><IoArrowBackCircle className="svg"/></Link>
         <h3>{currentItem.item.toUpperCase()}</h3>
@@ -27,6 +27,6 @@ export default function FoodDetails() {
         <button className="addToCart" onClick={() => addItemToCart(currentItem)}>Add to Cart</button>
         <button className="removeFromCart" onClick={() => removeItemFromCart(currentItem)}>Remove 
         </button>
-    </div>
+    </section>
   )
 }

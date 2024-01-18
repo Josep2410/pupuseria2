@@ -1,5 +1,6 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
+import Title from '../components/Title'
 
 export default function Profile() {
   const navigate = useNavigate()
@@ -9,9 +10,9 @@ export default function Profile() {
   }
  
   return (
-    <div>
-      <p>Profile Page</p>
+    <section className="profilePage">
+      <Title />
       <button onClick={logOut}>Logout </button>
-    </div>
+    </section>
   )
 }

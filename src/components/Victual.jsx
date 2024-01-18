@@ -17,7 +17,7 @@ export default function Victual({victualItems, categories}) {
       key={indx}>{upperCaseWord(category)}</p>))
 
   return (
-    <main className="itemsContainer">
+    <section className="itemsContainer">
       <Title />
       <nav className="navTabs">
         <Link to="." className={!displayFilter ? "activeTab" : "tabs"}>All</Link>
@@ -27,7 +27,7 @@ export default function Victual({victualItems, categories}) {
         displayItems.length ? (displayItems.map(item=>(<Item key={item.id} item={item} state={displayItems}/>))) 
         : <p>Loading...</p>
       }
-    </main>
+    </section>
   )
 }
 
