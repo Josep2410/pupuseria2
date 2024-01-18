@@ -1,7 +1,7 @@
 import React , {useState, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import Context from '../Context/MyContext'
-
+import DisplayMessage from '../components/DisplayMessage'
 export default function CreateAccount() {
 
   /* Idea : combine all three error states to one */
@@ -15,11 +15,13 @@ export default function CreateAccount() {
   const [createAccountSuccessfully, setCreateAccountSuccessfully] = useState(false)
 
   const submitForm = (e) =>{
+    
     e.preventDefault()
     setEmailpwdError(null)
     setPwdError(null)
     setOtherErrors(null)
     setCreateAccountSuccessfully(false)
+
     const existingEmail = users.find(user => user.email === registerEmail)
     const pwdMatch = createPassword === checkPWD
 
@@ -88,10 +90,10 @@ export default function CreateAccount() {
         </div>
         <button type='submit'>Create Account</button>
         <p>Already have an account ? <Link to='/login'>Log in</Link></p>
-        {pwdError && <h4 style={{color : 'red'}}>{pwdError}</h4>}
-        {emailPwdError && <h4 style={{color : 'red'}}>{emailPwdError}</h4>}
-        {otherErrors&& <h4 style={{color : 'red'}}>{otherErrors}</h4>}
-        {createAccountSuccessfully && <h4 style={{color : 'green'}}>Successfully created account</h4>}
+        {pwdError && <DisplayMessage message={pwdError}/>}
+        {emailPwdError && <DisplayMessage message={emailPwdError}/>}
+        {otherErrors&& <DisplayMessage message={otherErrors}/>}
+        {createAccountSuccessfully && <DisplayMessage error={false} message="Successfully created account"/>}
       </form>
   </section>
   )

@@ -19,7 +19,7 @@ export default function Cart() {
           {displayCartItems}
           <p onClick={clearCart} style={{color : 'red', textDecoration: 'underline'}}>CLEAR CART</p>
           <DisplayTotal itemsInCart={itemsInCart} totalCartItems={totalCartItems} />
-          <button>Submit</button>
+          <button><Link to='/checkout'>Checkout</Link></button>
         </form>
         ) 
         : (
