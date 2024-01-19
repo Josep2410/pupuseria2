@@ -10,6 +10,7 @@ export function MyContext({children}){
   const {width , height} = useWindowSize()
   const [menuItems, setMenuItems] = useState([])
   const [users, setUsers] = useState([])
+  const [currentUser , setCurrentUser] = useState(null)
   const [error, setError] = useState(null)
   const [itemsInCart , setItemsInCart] = useState([])
   const [totalCartItems, setTotalCartItems] = useState(itemsInCart.reduce((total , curr) => total + curr.numberInCart , 0))
@@ -75,8 +76,8 @@ export function MyContext({children}){
 
   return (
     <Context.Provider value={{
-      width, menuItems, error, itemsInCart,totalCartItems, users, usersURL,
-      addItemToCart, removeItemFromCart, clearCart ,setUsers
+      width, menuItems, error, itemsInCart,totalCartItems, users, usersURL,currentUser,
+      addItemToCart, removeItemFromCart, clearCart ,setUsers, setCurrentUser
       }}>
       {children}
     </Context.Provider>

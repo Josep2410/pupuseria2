@@ -5,7 +5,7 @@ import DisplayMessage from '../components/DisplayMessage'
 
 export default function Login() {
   const navigate = useNavigate()
-  const {users} = useContext(Context)
+  const {users, setCurrentUser} = useContext(Context)
   const [email , setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loginError, setLoginError] = useState({status : false, message : 'Wrong credentials'})
@@ -18,6 +18,7 @@ export default function Login() {
     const existingUser = users.find(user => user.email === email.toLowerCase() && user.password === password)
     if(!existingUser) setLoginError((prev) => ({...prev, status : true}))
     else if(existingUser){
+      setCurrentUser(existingUser)
       setEmail('')
       setPassword('')
       localStorage.setItem('loggedIn' , true)
