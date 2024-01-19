@@ -2,41 +2,43 @@ import React , {useState, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import Context from '../Context/MyContext'
 import DisplayMessage from '../components/DisplayMessage'
+
 export default function CreateAccount() {
 
-  /* Idea : combine all three error states to one */
   const {users, usersURL, setUsers} = useContext(Context)
-  const [registerEmail, setRegisterEmail] = useState('')
-  const [createPassword, setCreatePassword] = useState('')
+  const [createAccount , setCreateAccount ] = useState({email : '' , name : '' , password : ''})
   const [checkPWD, setCheckPWD] = useState('')
-  const [emailPwdError, setEmailpwdError] = useState(null)
-  const [pwdError, setPwdError] = useState(null)
-  const [otherErrors, setOtherErrors] = useState(null)
   const [createAccountSuccessfully, setCreateAccountSuccessfully] = useState(false)
+  const [error, setError] = useState(null)
 
   const submitForm = (e) =>{
-    
     e.preventDefault()
-    setEmailpwdError(null)
-    setPwdError(null)
-    setOtherErrors(null)
     setCreateAccountSuccessfully(false)
+    setError(null)
 
-    const existingEmail = users.find(user => user.email === registerEmail)
-    const pwdMatch = createPassword === checkPWD
+    try{
+      const existingEmail = users.find(user => user.email === createAccount.email.toLowerCase())
+      const pwdMatch = createAccount.password === checkPWD
+      if(existingEmail) throw new Error('Email already has an account')
+      if(!pwdMatch) throw new Error('Passwords do not match')
+      else if(!existingEmail && pwdMatch) createNewUser(createAccount)
+    }catch(err){
+      setError(err)
+    }
 
-    if(existingEmail) setPwdError('Email already has an account')
-    if(!pwdMatch) setPwdError('Passwords do not match')
-    else if(!existingEmail && pwdMatch) {
-    createNewUser(registerEmail, createPassword)}
-    
   }
 
-  const createNewUser = async (email , pwd) => {
+  const handleChange = (e) => {
+    const {name , value} = e.target
+    setCreateAccount(prev => ({...prev , [name] : value}))
+  }
+
+  const createNewUser = async ({email , name, password}) => {
     const newUser = {
       id : users.length? users[users.length - 1].id + 1 : 1,
       email : email.toLowerCase(),
-      password : pwd
+      name : name,
+      password : password
     }
     try{
       const response = await fetch(`${usersURL}/users` , {
@@ -47,14 +49,14 @@ export default function CreateAccount() {
         body : JSON.stringify(newUser)
       })
       if(!response.ok) throw new Error('Problem creating new user')
+      
       console.log('successfully created user')
       setUsers([...users , newUser])
       setCreateAccountSuccessfully(true)
-      setRegisterEmail('')
-      setCreatePassword('')
+      setCreateAccount({email : '' , name : '' , password : ''})
       setCheckPWD('')
     }catch(err){
-      setOtherErrors(err.message)
+      setError(err.message)
     }
   }
 
@@ -65,22 +67,37 @@ export default function CreateAccount() {
         <div>
           <label htmlFor="emailAddr">Email</label>
           <input 
+            required
             id="emailAddr"
             type="email" 
-            placeholder='Email' 
-            value={registerEmail} 
-            onChange={(e) => setRegisterEmail(e.target.value)}
+            placeholder='Email'
+            name="email" 
+            value={createAccount.email} 
+            onChange={handleChange}
+            />
+          <label htmlFor="username">Name</label>
+          <input 
+            required
+            id="username"
+            type="text" 
+            placeholder='First name' 
+            name="name"
+            value={createAccount.name} 
+            onChange={handleChange}
             />
           <label htmlFor="regPWd">Password</label>
           <input 
+            required
             id="regPWD"
             type="password" 
+            name="password"
             placeholder='Password' 
-            value={createPassword} 
-            onChange={(e) => setCreatePassword(e.target.value)}
+            value={createAccount.password} 
+            onChange={handleChange}
             />
           <label htmlFor="checkPWD">Check Password</label>
           <input 
+            required
             id="checkPWD"
             type="password" 
             placeholder='Re-type password' 
@@ -90,9 +107,7 @@ export default function CreateAccount() {
         </div>
         <button type='submit'>Create Account</button>
         <p>Already have an account ? <Link to='/login'>Log in</Link></p>
-        {pwdError && <DisplayMessage message={pwdError}/>}
-        {emailPwdError && <DisplayMessage message={emailPwdError}/>}
-        {otherErrors&& <DisplayMessage message={otherErrors}/>}
+        {error && <DisplayMessage message={error.message}/>}
         {createAccountSuccessfully && <DisplayMessage error={false} message="Successfully created account"/>}
       </form>
   </section>
