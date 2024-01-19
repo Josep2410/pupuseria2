@@ -2,7 +2,8 @@
   "users": [
     {
       "id": 1,
-      "email": "pinhead@123.com",
+      "email": "josephpinoy2@yahoo.com",
+      "name": "joseph",
       "password": "123"
     }
   ]
