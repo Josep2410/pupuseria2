@@ -74,10 +74,30 @@ export function MyContext({children}){
 
   }, [itemsInCart])
 
+  const updateUser = async (key, value) => {
+  const {id} = currentUser
+    const others = users.filter(user => user.id !== id)
+    const updateUser = currentUser.previousOrders ? [...currentUser.previousOrders , value] : [value]
+    setCurrentUser({...currentUser , [key] : updateUser})
+    setUsers([...others, {...currentUser, key : value}])
+    try{
+      const response = await fetch(`${usersURL}/users/${id}`, {
+        method : 'PATCH',
+        headers : {'Content-Type' : 'application/json'},
+        body : JSON.stringify({[key] : updateUser}) // try to push into existing array
+      })
+      if(!response.ok) throw new Error("PUT request error")
+
+    }catch(err){
+      console.log(err)
+    }
+   
+  }
+
   return (
     <Context.Provider value={{
       width, menuItems, error, itemsInCart,totalCartItems, users, usersURL,currentUser,
-      addItemToCart, removeItemFromCart, clearCart ,setUsers, setCurrentUser
+      addItemToCart, removeItemFromCart, clearCart ,setUsers, setCurrentUser, updateUser
       }}>
       {children}
     </Context.Provider>
