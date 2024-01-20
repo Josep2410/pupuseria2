@@ -1,7 +1,14 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import Context from '../Context/MyContext'
+import Title from '../components/Title'
+
 
 export default function Home() {
+  const {currentUser} = useContext(Context)
   return (
-    <div>Home</div>
+    <>
+      <Title/>
+      {currentUser && <p>Hello, {currentUser.name}</p>}
+    </>
   )
 }
