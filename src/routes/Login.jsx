@@ -4,26 +4,39 @@ import Context from '../Context/MyContext'
 import DisplayMessage from '../components/DisplayMessage'
 
 export default function Login() {
+
+  /* Idea : combine email and password states*/
   const navigate = useNavigate()
   const {users, setCurrentUser} = useContext(Context)
-  const [email , setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [loginError, setLoginError] = useState({status : false, message : 'Wrong credentials'})
+  const [login, setLogin] = useState({email : '' , password : ''})
+  const [loginError, setLoginError] = useState(null)
   const location = useLocation()
   const intendedPath = location.state?.intendedPath || '/profile'
 
   const submitForm = (e) => {
     e.preventDefault()
-    setLoginError((prev) => ({...prev, status : false}))
-    const existingUser = users.find(user => user.email === email.toLowerCase() && user.password === password)
-    if(!existingUser) setLoginError((prev) => ({...prev, status : true}))
-    else if(existingUser){
+    setLoginError(null)
+
+    try{
+      const existingUser = users.find(user => user.email === (login.email).toLowerCase())
+      
+      if(!existingUser) throw new Error('No account found with email')
+      const {password} = existingUser
+      if(!(password === login.password)) throw new Error('Incorrect Password')
+
       setCurrentUser(existingUser)
-      setEmail('')
-      setPassword('')
+      setLogin({email : '' , password : ''})
       localStorage.setItem('loggedIn' , true)
       navigate(`${intendedPath}`, {replace : true} )
+    
+    }catch(err){
+      setLoginError(err)
     }
+  }
+
+  const handleChange = (e) => {
+    const {name , value} = e.target
+    setLogin((prev) => ({...prev, [name] : value}))
   }
 
   return (
@@ -34,21 +47,23 @@ export default function Login() {
       <label htmlFor="loginEmail">Email</label>
       <input 
         id="loginEmail" 
+        name="email"
         type="email"
         placeholder='Email' 
-        value={email} 
-        onChange={(e)=>setEmail(e.target.value)}/>
+        value={login.email} 
+        onChange={handleChange}/>
       <label htmlFor="loginPWD">Password</label>
       <input 
         id="loginPWD" 
+        name="password"
         type="password" 
         placeholder='Password'
-        value={password}
-        onChange={(e)=>setPassword(e.target.value)}/>
+        value={login.password}
+        onChange={handleChange}/>
       </div>
       <button>LOGIN</button>
       <p>Don't have an account ? <Link to="/createAccount">Create one</Link></p>
-      {loginError.status && <DisplayMessage message={ loginError.message} />}
+      {loginError && <DisplayMessage message={ loginError.message} />}
       {location.state?.message && <DisplayMessage message={location.state.message}/>}
    </form>
 
