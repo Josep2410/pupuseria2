@@ -15,31 +15,12 @@ export function MyContext({children}){
   const [itemsInCart , setItemsInCart] = useState([])
   const [totalCartItems, setTotalCartItems] = useState(itemsInCart.reduce((total , curr) => total + curr.numberInCart , 0))
 
-  const addItemToCart = (newItem) => {
-    const existingItem = itemsInCart.find(item => item.id === newItem.id)
-    if(existingItem){
-      const others = itemsInCart.filter(item => item.id !== existingItem.id)
-      setItemsInCart([...others, {...existingItem, numberInCart : existingItem.numberInCart + 1}])
-    }
-   else{
-    setItemsInCart([...itemsInCart, {...newItem, numberInCart : 1}])
-   }
-  }
-
-  const removeItemFromCart = (item) => { 
-   const existingItem = itemsInCart.find(obj => obj.id === item.id)
-   if(existingItem){
-    const others = itemsInCart.filter(obj => obj.id !== existingItem.id)
-    existingItem.numberInCart >1 
-      ? setItemsInCart([...others, {...existingItem , numberInCart : existingItem.numberInCart - 1}])
-      : setItemsInCart([...others])
-   }
-  }
-  const clearCart = () => {
-    setItemsInCart([])
-  }
-
-  useEffect(() => {
+  /* 
+    UseEffect :
+      1. Call and populate menuItems and users state-variables
+      2. Ensure the user is logged off when the app first loads. Reason is to avoid a contradication/error
+  */
+  useEffect(() => { 
     const getMenuItems = async () => {
      try{
       setError(null)
@@ -67,19 +48,44 @@ export function MyContext({children}){
 
     getMenuItems()
     getUsers()
+    localStorage.removeItem("loggedIn")
   }, [])
 
-  useEffect(()=> {
-    setTotalCartItems(itemsInCart.reduce((total , curr) => total + curr.numberInCart , 0))
+ /* Set the total number of items in the itemsInCart state-variable */
+ useEffect(()=> {
+  setTotalCartItems(itemsInCart.reduce((total , curr) => total + curr.numberInCart , 0))
+  } , [itemsInCart])
 
-  }, [itemsInCart])
+  const addItemToCart = (newItem) => {
+    const existingItem = itemsInCart.find(item => item.id === newItem.id)
+    if(existingItem){
+      const others = itemsInCart.filter(item => item.id !== existingItem.id)
+      setItemsInCart([...others, {...existingItem, numberInCart : existingItem.numberInCart + 1}])
+    }
+   else{
+    setItemsInCart([...itemsInCart, {...newItem, numberInCart : 1}])
+   }
+  }
 
-  const updateUser = async (key, value) => {
-  const {id} = currentUser
+  const removeItemFromCart = (item) => { 
+   const existingItem = itemsInCart.find(obj => obj.id === item.id)
+   if(existingItem){
+    const others = itemsInCart.filter(obj => obj.id !== existingItem.id)
+    existingItem.numberInCart >1 
+      ? setItemsInCart([...others, {...existingItem , numberInCart : existingItem.numberInCart - 1}])
+      : setItemsInCart([...others])
+   }
+  }
+  const clearCart = () => {
+    setItemsInCart([])
+  }
+
+  const updateUser = async (key, obj) => {
+    const {id} = currentUser
     const others = users.filter(user => user.id !== id)
-    const updateUser = currentUser.previousOrders ? [...currentUser.previousOrders , value] : [value]
+    const updateUser = currentUser.previousOrders ? [...currentUser.previousOrders , obj] : [obj]
     setCurrentUser({...currentUser , [key] : updateUser})
-    setUsers([...others, {...currentUser, key : value}])
+    setUsers([...others, {...currentUser, [key] : obj}])
     try{
       const response = await fetch(`${usersURL}/users/${id}`, {
         method : 'PATCH',
@@ -96,7 +102,7 @@ export function MyContext({children}){
 
   return (
     <Context.Provider value={{
-      width, menuItems, error, itemsInCart,totalCartItems, users, usersURL,currentUser,
+      usersURL , width, menuItems, error, itemsInCart,totalCartItems, users, usersURL,currentUser,
       addItemToCart, removeItemFromCart, clearCart ,setUsers, setCurrentUser, updateUser
       }}>
       {children}

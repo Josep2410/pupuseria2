@@ -71,7 +71,7 @@ button{
 }
 
 /* ==== ItemDetails , Items, Cart, Profile Component======= */
-section.itemDetailsContainer, section.itemsContainer , section.cartPage , .profilePage {
+section.itemsContainer , section.cartPage , .profilePage, .previousOrders {
   padding : 20px 20px 100px 20px;
 }
 
@@ -238,13 +238,14 @@ div.itemInfo a.moreDetails , section.cartPage section a{
 
 
 
-/* ============== ItemDetails Component ============= */
-
+/* ============== ItemDetails Component ============= */ 
 section.itemDetailsContainer{
+  padding : 20px 20px 0 20px;
   height: 700px;
   display : flex;
   flex-direction: column;
   align-items: center;
+  height : 120vh;
 }
 
 
@@ -252,6 +253,7 @@ section.itemDetailsContainer{
   display : flex;
   align-items: center;
   width: 100%;
+  
 }
 .itemDetailsContainer section >*{
   flex-grow: 1;
@@ -282,11 +284,12 @@ section.itemDetailsContainer >  img {
   overflow: hidden;
 }
 .itemDetailsInfo{
- height: 20%;
+ height: 18%;
  display : flex;
  flex-direction: column;
  align-items: flex-start;
   padding : 5px;
+  justify-content: space-evenly;
 }
 .itemDetailsInfo p{
   font-size: 1.5rem;

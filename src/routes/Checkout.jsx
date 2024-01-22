@@ -23,7 +23,7 @@ export default function Checkout() {
 
   const handleSubmit = (e) =>{
     e.preventDefault()
-    updateUser('previousOrders', itemsInCart )
+    updateUser('previousOrders', { date, total, itemsInCart})
     emailjs.sendForm('service_nerl3hs', 'contact_form', e.target, 'C865dYJwizaxcQPPT')
       .then(()=> console.log('Success'), (err) => console.log(err))
     clearCart()

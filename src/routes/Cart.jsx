@@ -6,7 +6,7 @@ import Item from '../components/Item'
 import DisplayTotal from '../components/DisplayTotal'
 
 export default function Cart() {
-  const {itemsInCart , totalCartItems,clearCart} = useContext(Context)
+  const {itemsInCart ,clearCart} = useContext(Context)
 
   const displayCartItems = itemsInCart.sort((a,b) => a.id - b.id).map(obj => <Item key={obj.id} item={obj}/>)
 
