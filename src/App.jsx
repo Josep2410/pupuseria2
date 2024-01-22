@@ -13,6 +13,7 @@ import Authenticate from './components/Authenticate'
 import Checkout from './routes/Checkout'
 import Login from './routes/Login'
 import CreateAccount from './routes/CreateAccount'
+import PreviousOrders from './routes/PreviousOrders'
 import { MyContext } from './Context/MyContext'
 
 
@@ -34,6 +35,7 @@ function App() {
         <Route element={<Authenticate />}>
           <Route path="checkout" element={<Checkout/>}/>
           <Route path="profile" element={<Profile/>}/>
+          <Route path="profile/previousOrders" element={<PreviousOrders/>}/>
         </Route>
         <Route path="login" element={<Login />}/>
         <Route path="createAccount" element={<CreateAccount />}/>
