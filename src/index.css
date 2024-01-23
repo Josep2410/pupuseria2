@@ -59,19 +59,23 @@ a {
   display : none;
 }
 
+img{
+  width : 100%;
+}
+
 button{
   width : 100%;
   height: 7%;
-  padding : 8px 0px;
+  padding : 15px 0px;
   font-size: 1.2rem;
   font-weight: 500;
   border-style: none;
-  border-radius: 5px; 
+  border-radius: 15px; 
   background-color : var(--ternaryGrey);
 }
 
 /* ==== ItemDetails , Items, Cart, Profile Component======= */
-section.itemsContainer , section.cartPage , .profilePage, .previousOrders {
+section.itemsContainer , section.cartPage , .profilePage, .previousOrders   {
   padding : 20px 20px 100px 20px;
 }
 
@@ -123,8 +127,65 @@ span.display{
 /* ====== Title Component ========== */
 
 .title{
-  padding : 10px;
+  padding : 10px ;
 }
+
+
+/* ====== Home Component ===== */
+
+div.homePage{
+  padding : 20px 0px 150px 0px;
+}
+.homePage>*:not(:first-child){
+  text-align: center;
+}
+
+.homePage h3 , .homePage h4{
+  margin : 15px 0px;
+}
+
+.homePage span{
+  display : block;
+  margin-top : 10px;
+  font-weight: 500;
+}
+
+.homePage a{
+  color : var(--linkColor);
+  text-decoration: underline;
+}
+
+.pane{
+  position: relative;
+}
+
+.pane img{
+  filter: brightness(70%);
+  border-radius: 5px;
+}
+
+.pane p{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffe600;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: normal;
+  width: 60%;
+  text-align: center;
+}
+
+.separator{
+  margin: 30px 0px;
+  width: 100%;
+  height: 5px;
+  background-color: var(--blue);
+}
+
 
 /*============ Nav Component =============== */
 
