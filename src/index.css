@@ -75,7 +75,7 @@ button{
 }
 
 /* ==== ItemDetails , Items, Cart, Profile Component======= */
-section.itemsContainer , section.cartPage , .profilePage, .previousOrders   {
+section.itemsContainer , section.cartPage , .profilePage, .previousOrders , div.homePage   {
   padding : 20px 20px 100px 20px;
 }
 
@@ -133,11 +133,12 @@ span.display{
 
 /* ====== Home Component ===== */
 
-div.homePage{
-  padding : 20px 0px 150px 0px;
-}
 .homePage >*:not(:first-child){
   text-align: center;
+}
+
+.homePage main{
+  padding : 30px 0px;
 }
 
 .homePage h3 , .homePage h4{
@@ -151,16 +152,19 @@ div.homePage{
 .homePage h4{
   padding : 5px 10px;
   font-size: 20px;
+  font-weight: 500;
 }
 
 .homePage span{
   display : block;
   margin-top : 10px;
+  font-weight: 600;
 }
 
 .homePage a{
   color : var(--linkColor);
   text-decoration: underline;
+
 }
 
 .pane{
