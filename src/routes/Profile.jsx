@@ -32,7 +32,7 @@ const deleteAccount = async () => {
       <Title />
       <Link to="previousOrders"><button>Previous Orders</button></Link>
       <button onClick={logOut}>Logout </button>
-      <button onClick={deleteAccount} style={{color : 'red'}}>Delete Account</button>
+      <button onClick={deleteAccount} style={{color : '#BC0000'}}>Delete Account</button>
     </section>
   )
 }

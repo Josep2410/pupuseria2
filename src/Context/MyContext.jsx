@@ -102,7 +102,7 @@ export function MyContext({children}){
 
   return (
     <Context.Provider value={{
-      usersURL , width, menuItems, error, itemsInCart,totalCartItems, users, usersURL,currentUser,
+      usersURL , width, menuItems, error, itemsInCart,totalCartItems, users, currentUser,
       addItemToCart, removeItemFromCart, clearCart ,setUsers, setCurrentUser, updateUser
       }}>
       {children}
