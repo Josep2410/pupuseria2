@@ -22,8 +22,8 @@ function App() {
 
   const router = createBrowserRouter(createRoutesFromElements(
       //Consider adding an errorElement
-      <Route path='/' element={<DefaultLayout /> }>
-        <Route index element={<Navigate to='home' replace/>}/>
+      <Route path='/' element={<DefaultLayout /> } errorElement={<Missing />}>
+        <Route index element={<Navigate to='home' replace/>} />
         <Route path="home" element={<Home />}/>
         <Route path="popular" element={<Popular />}/>
         <Route path="popular/:id" element={<ItemDetails /> } />
@@ -39,7 +39,8 @@ function App() {
         </Route>
         <Route path="login" element={<Login />}/>
         <Route path="createAccount" element={<CreateAccount />}/>
-        <Route path="*" element={<Missing />}/>
+       
+        
       </Route>
   ))
 
