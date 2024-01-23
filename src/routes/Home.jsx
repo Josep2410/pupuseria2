@@ -19,9 +19,9 @@ export default function Home() {
       <Separator />
       <h3>Don't have an account?</h3>
       <h3>Create One</h3>
-      <ImagePane img="/images/Salvadoran-Quesadilla.jpg.webp" text="Create Account" link="/login"/>
+      <ImagePane img="/images/Salvadoran-Quesadilla.jpg.webp" text="Create Account" link="/createAccount"/>
       <h4>Earn reward points, view your previous orders and much more
-        <span>Already have one ? <Link>Log in</Link></span>
+        <span>Already have one ? <Link to="/login">Log in</Link></span>
       </h4>
       
       <Separator />

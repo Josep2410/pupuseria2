@@ -136,18 +136,26 @@ span.display{
 div.homePage{
   padding : 20px 0px 150px 0px;
 }
-.homePage>*:not(:first-child){
+.homePage >*:not(:first-child){
   text-align: center;
 }
 
 .homePage h3 , .homePage h4{
-  margin : 15px 0px;
+  margin : 20px 0px;
+}
+
+.homePage h3{
+  font-size : 26px;
+}
+
+.homePage h4{
+  padding : 5px 10px;
+  font-size: 20px;
 }
 
 .homePage span{
   display : block;
   margin-top : 10px;
-  font-weight: 500;
 }
 
 .homePage a{
