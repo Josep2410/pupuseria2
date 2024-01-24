@@ -30,9 +30,9 @@ const deleteAccount = async () => {
   return (
     <section className="profilePage">
       <Title />
-      <Link to="previousOrders"><button>Previous Orders</button></Link>
-      <button onClick={logOut}>Logout </button>
-      <button onClick={deleteAccount} style={{color : '#BC0000'}}>Delete Account</button>
+      <div><Link to="previousOrders"><button>Previous Orders</button></Link></div>
+      <div>   <button onClick={logOut}>Logout </button></div>
+      <div><button onClick={deleteAccount} style={{color : '#BC0000'}}>Delete Account</button></div>
     </section>
   )
 }
