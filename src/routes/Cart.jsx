@@ -4,6 +4,7 @@ import Context from '../Context/MyContext'
 import Title from '../components/Title'
 import Item from '../components/Item'
 import DisplayTotal from '../components/DisplayTotal'
+import DisplayNoContent from '../components/DisplayNoContent'
 
 export default function Cart() {
   const {itemsInCart ,clearCart} = useContext(Context)
@@ -24,10 +25,10 @@ export default function Cart() {
         </form>
         ) 
         : (
-      <section className='noItems'>
-          <h1>No Items in Cart</h1>
-          <Link to="/">Return to Home</Link>
-      </section>
+          <DisplayNoContent
+             message="No Items in Cart"
+             linkTo="/"
+             linkContent="Return to Home" />
         ) }
     </section >
   )
