@@ -83,14 +83,14 @@ export function MyContext({children}){
   const updateUser = async (key, obj) => {
     const {id} = currentUser
     const others = users.filter(user => user.id !== id)
-    const updateUser = currentUser.previousOrders ? [...currentUser.previousOrders , obj] : [obj]
+    const updateUser = currentUser.previousOrders ? [ obj , ...currentUser.previousOrders  ] : [obj]
     setCurrentUser({...currentUser , [key] : updateUser})
     setUsers([...others, {...currentUser, [key] : obj}])
     try{
       const response = await fetch(`${usersURL}/users/${id}`, {
         method : 'PATCH',
         headers : {'Content-Type' : 'application/json'},
-        body : JSON.stringify({[key] : updateUser}) // try to push into existing array
+        body : JSON.stringify({[key] : updateUser})
       })
       if(!response.ok) throw new Error("PUT request error")
 
