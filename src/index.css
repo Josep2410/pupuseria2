@@ -68,6 +68,10 @@ img{
   width : 100%;
 }
 
+.danger{
+  color : rgb(228, 2, 2);
+}
+
 button{
   width : 100%;
   height: 7%;
