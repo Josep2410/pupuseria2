@@ -1,8 +1,14 @@
-# React + Vite
+Hello,
+This is a React Solo Project of mine.
+It's not yet complete so bare with me. If you any comments or suggestions please DM.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+INSTRUCTIONS for installing
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. clone the repo : git clone <repoURL>
+2. change directories : cd pupuseria2
+3. Install the necessary packages : npm i
+4. Make resources available
+   4.1 json-server -p 4000 data/user.json
+   4.2 IN A NEW TERMINAL : json-server -p 3500 data/data.json
+5. IN A NEW TERMINAL : npm run dev // three terminals should be running : 4.1, 4.2, & 5
+6. Works best in small screens . If on desktop or tablet, decrease window size
