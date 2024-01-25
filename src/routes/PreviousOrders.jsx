@@ -13,7 +13,7 @@ export default function PreviousOrders() {
       <Title header='PREVIOUS ORDERS'/>
      <main>
      {currentUser?.previousOrders
-        ? currentUser.previousOrders.map(order => <PreviousOrder order={order}/>)
+        ? currentUser.previousOrders.map(order => <PreviousOrder key={order.date} order={order}/>)
         : <DisplayNoContent
         message="No Previous Orders"
         linkTo="/food"
