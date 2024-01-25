@@ -10,8 +10,8 @@ INSTRUCTIONS for installing
 
 3. Install the necessary packages : npm i
 
-4. Make resources available
-   4.1 npx json-server -p 4000 data/user.json
+4. Make resources available <br>
+   4.1 npx json-server -p 4000 data/user.json<br>
    4.2 IN A NEW TERMINAL : npx json-server -p 3500 data/data.json
    //Be under 'pupuseria2' directory before performing this step
 5. IN A NEW TERMINAL : npm run dev // three terminals should be running : 4.1, 4.2, & 5
