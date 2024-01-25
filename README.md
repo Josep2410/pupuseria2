@@ -4,7 +4,7 @@ It's not yet complete so bare with me. If you any comments or suggestions please
 
 INSTRUCTIONS for installing
 
-1. clone the repo : git clone <repoURL>
+1. clone the repo : git clone https://github.com/Josep2410/pupuseria2.git
 2. change directories : cd pupuseria2
 3. Install the necessary packages : npm i
 4. Make resources available
