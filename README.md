@@ -10,13 +10,17 @@ INSTRUCTIONS for installing
 
 3. Install the necessary packages : npm i
 
-4. Make resources available <br>
-   4.1 npx json-server -p 4000 data/user.json<br>
-   4.2 IN A NEW TERMINAL : npx json-server -p 3500 data/data.json<br>
-   //Be under 'pupuseria2' directory before performing this step
-5. IN A NEW TERMINAL : npm run dev <br>
-   // three terminals should be running : 4.1, 4.2, & 5 <br>
-   //Be under 'pupuseria2' directory before performing this step
+4. Globally install json-server : npm install json-server -g <br>
+   //Can check if globally installed and 'json-server' is listed: npm list -g
 
-6. Works best in small screens . Have yet to work on responsive design
+//Step 5 & 6 , make sure to be under 'pupuseria2' directory
+
+5. Make resources available <br>
+   5.1 json-server -p 4000 data/user.json<br>
+   5.2 IN A NEW TERMINAL : json-server -p 3500 data/data.json<br>
+
+6. IN A NEW TERMINAL : npm run dev <br>
+   // three terminals should be running : 5.1 , 5.2 & 6 <br>
+
+7. Works best in small screens . Have yet to work on responsive design
    If on desktop or tablet, decrease window size
