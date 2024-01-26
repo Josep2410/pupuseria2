@@ -25,7 +25,7 @@ export default function Checkout() {
   const emailBody = 
     `Order placed on ${date}\nTotal of $${total} was charged to your account.\nOrder details : \n${orderDetails.join('\n')}`
 
-  const handleSubmit = async (e) =>{
+  const handleSubmit = (e) =>{
     
     e.preventDefault()
     emailjs.sendForm('service_nerl3hs', 'contact_form', e.target, 'C865dYJwizaxcQPPT')
@@ -35,7 +35,6 @@ export default function Checkout() {
     navigate('/home')
   }
 
-  console.log(itemsInCart)
   if(!itemsInCart.length){
    return <DisplayNoContent message="No items in Cart" linkTo="/home" linkContent="Return to Home"/>
   }
