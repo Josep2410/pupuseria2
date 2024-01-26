@@ -10,7 +10,7 @@ import {format} from 'date-fns'
 
 export default function Checkout() {
   const navigate = useNavigate()
-  const {itemsInCart , updateUser, currentUser , clearCart} = useContext(Context)
+  const {itemsInCart , updateUserFn, currentUser , clearCart} = useContext(Context)
 
   const [total , setTotal] = useState(0)
   const [date , setDate] = useState(format( new Date() , 'MM/dd/yyyy HH:mm:ss'))
@@ -30,7 +30,7 @@ export default function Checkout() {
     e.preventDefault()
     emailjs.sendForm('service_nerl3hs', 'contact_form', e.target, 'C865dYJwizaxcQPPT')
       .then(()=> console.log('Successfully Submitted Email'), (err) => console.log(err))
-    updateUser('previousOrders', { date, total, itemsInCart})
+    updateUserFn('previousOrders', { date, total, itemsInCart})
     clearCart()
     navigate('/home')
   }

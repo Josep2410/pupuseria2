@@ -80,7 +80,7 @@ export function MyContext({children}){
     setItemsInCart([])
   }
 
-  const updateUser = async (key, obj) => {
+  const updateUserFn = async (key, obj) => {
     const {id} = currentUser
     const others = users.filter(user => user.id !== id)
     const updateUser = currentUser.previousOrders ? [ obj , ...currentUser.previousOrders  ] : [obj]
@@ -103,7 +103,7 @@ export function MyContext({children}){
   return (
     <Context.Provider value={{
       usersURL , width, menuItems, error, itemsInCart,totalCartItems, users, currentUser,
-      addItemToCart, removeItemFromCart, clearCart ,setUsers, setCurrentUser, updateUser
+      addItemToCart, removeItemFromCart, clearCart ,setUsers, setCurrentUser, updateUserFn
       }}>
       {children}
     </Context.Provider>
