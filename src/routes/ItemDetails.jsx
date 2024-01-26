@@ -18,15 +18,21 @@ export default function FoodDetails() {
         <h3>{currentItem.item.toUpperCase()}</h3>
         <GoStarFill className={`svg star ${currentItem.popular? "" : 'hide'}`}/>
       </section>
-      <img src={currentItem.img} alt={`image of ${currentItem.item}`} />
-      <div className="itemDetailsInfo">
-        <p>Ingredients: <span className='ingredients'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda alias fugiat optio cupiditate, vero fuga.</span>
-        </p>
-        <p>${currentItem.price}</p>
+      <div className='img_container'>
+        <img src={currentItem.img} alt="" />
       </div>
-        <button className="addToCart" onClick={() => addItemToCart(currentItem)}>Add to Cart</button>
-        <button className="removeFromCart" onClick={() => removeItemFromCart(currentItem)}>Remove 
-        </button>
+      <div className='info'>
+        <p className='ingredients'>Ingredients : </p>
+        <p className='actual_ingredients'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo omnis repellendus provident.</p>
+        <p className="price">${currentItem.price}</p>
+      </div>
+      <div className='button_container'>
+        <button className='addToCart' onClick={()=> addItemToCart(currentItem)}>Add to Cart</button>
+      </div>
+      <div className='button_container'>
+        <button className='removeFromCart' onClick={() => removeItemFromCart(currentItem)}>Remove from Cart</button>
+      </div>
+
     </section>
   )
 }
