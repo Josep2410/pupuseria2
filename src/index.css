@@ -161,7 +161,7 @@ span.display{
 }
 
 .homePage h3 , .homePage h4{
-  margin : 20px 0px;
+  margin : 15px 0px 15px 0px;
 }
 
 .homePage h3{
@@ -171,8 +171,9 @@ span.display{
 
 .homePage h4{
   padding : 5px 10px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
+ 
 }
 
 .homePage span{
@@ -206,7 +207,7 @@ span.display{
   font-family: 'Roboto', sans-serif;
   font-size: 24px;
   font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   line-height: normal;
   width: 60%;
   text-align: center;
@@ -263,6 +264,8 @@ section.itemsContainer nav.navTabs{
   display : flex;
  
 } 
+
+
 section.itemsContainer nav.navTabs > *{
 flex-grow: 1;
 text-align: center;
@@ -309,7 +312,7 @@ div.itemInfo > div{
 
 div.itemInfo div p{
   font-size : 2.5vh;
-  font-weight: 500;
+  font-weight: 400;
   flex-grow: 1;
 }
 
@@ -319,7 +322,7 @@ div.itemInfo .svg{
 }
 
 div.itemInfo > p.price{
-  font-size : 1em;
+  font-size : 1.15em;
   padding : 15px 0;
 }
 
@@ -328,6 +331,7 @@ div.itemInfo a.moreDetails , section.cartPage section a{
   text-decoration: underline;
   color : var(--linkColor);
   flex-grow: 1;
+  font-size: 1.1rem;
 }
 
 
@@ -335,7 +339,6 @@ div.itemInfo a.moreDetails , section.cartPage section a{
 /* ============== ItemDetails Component ============= */ 
 section.itemDetailsContainer{
   padding : 20px 20px 0 20px;
-  height: 700px;
   display : flex;
   flex-direction: column;
   align-items: center;
@@ -347,8 +350,9 @@ section.itemDetailsContainer{
   display : flex;
   align-items: center;
   width: 100%;
-  
+ 
 }
+
 .itemDetailsContainer section >*{
   flex-grow: 1;
 }
@@ -364,48 +368,58 @@ section.itemDetailsContainer{
 }
 
 section.itemDetailsContainer h3{
-  font-weight: 400;
+  font-weight: 500;
   padding : 8px;
   text-align: center;
 }
 
-section.itemDetailsContainer >  img {
-  width: 90%;
-  height: 25%;
-  object-fit: cover;
-  border-radius: 15px;
+.img_container{
+  padding: 15px;
+  height : 30vh;
+  width: 100%;
+}
+
+.img_container > img {
+  border-radius: 10px;
   box-shadow: 0 0 5px 1px var(--secondaryGrey);
-  overflow: hidden;
+  object-fit: cover;
+  height : 100%;
 }
-.itemDetailsInfo{
- height: 18%;
- display : flex;
- flex-direction: column;
- align-items: flex-start;
+.info {
+  padding : 10px;
+  height : 15vh;
+  display : flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info > .ingredients {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.info > .actual_ingredients{
+  font-size: 1.05rem;
+}
+
+.info > .price {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.button_container{
+  width : 100%;
   padding : 5px;
-  justify-content: space-evenly;
-}
-.itemDetailsInfo p{
-  font-size: 1.5rem;
-  text-align: left;
 }
 
-span.ingredients{
-  font-size: 1.35rem;
-  color: var(--primaryGrey);
+.button_container > button{
+  height : 100%;
 }
-
 
 .addToCart{
   background-color: var(--secondaryBlue);
-  color : var(--black);
 }
 
-.removeFromCart{
-  background-color: var(--secondaryGrey);
-  color : white;
-
-}
 
 /* ======= Cart Component ================ */
 
@@ -416,6 +430,11 @@ section.cartPage > form > *:not(:first-child){
 
 section.cartPage button{
   background-color : var(--ternaryGrey);
+}
+
+form p.clearCart{
+  color : red;
+  text-decoration: underline;
 }
 
 /* =====  DisplayTotal Component === */
@@ -491,10 +510,7 @@ section.cartPage button{
   color : var(--primaryGrey)
 }
 
-.logInForm p a,  .createAccountForm p a {
-  text-decoration: underline;
-  color : var(--linkColor);
-}
+
 
 /* ========= Checkout Component ================ */
 
@@ -510,6 +526,9 @@ section.cartPage button{
 div.missingPage{
   text-align: center;
   padding : 150px 0px;
+  display : flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .missingPage h3{
@@ -526,7 +545,8 @@ div.missingPage{
 }
 
 .missingPage button{
-margin: 150px 0px;
+  width : 100vw;
+  margin: 150px 0px;
   text-align: center;
   font-size: 20px;
   font-style: normal;
@@ -555,7 +575,7 @@ margin: 150px 0px;
 
 /*  ================= Media Queries ==============*/
 
-@media only screen and (min-width: 695px) {
+@media only screen and (min-width: 625px) {
 
   header {
     padding : 20px;
@@ -563,6 +583,44 @@ margin: 150px 0px;
   header h1{
     font-size : 4rem;
   }
+
+      /* ==== Home Component ====   */
+
+  .homePage main{
+    padding : 30px 30px;
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pane img{
+    border-radius: 12px;
+  }
+
+  .pane p{
+    font-size: 30px;
+    width: 60%;
+  }
+
+  .homePage h4{
+    padding : 5px 10px;
+    font-size: 22px;
+    width : 90%;
+
+  }
+
+  .homePage h3 , .homePage h4{
+    margin : 10px 0px;
+  }
+
+  .separator{
+    height: 8px;
+    margin: 30px 0px 25px 0px;
+  }
+ 
+
+  /* ==== Nav Component ==== */
+
   nav.navRoutes{
     position : static;
   }
@@ -575,7 +633,7 @@ margin: 150px 0px;
     justify-content: center;
   }
   nav.navRoutes ul li a > *{
-    flex-grow: 1;
+    padding : 5px;
   }
   nav.navRoutes ul li a p{
     font-size : 1.25rem;
@@ -584,9 +642,177 @@ margin: 150px 0px;
     height: 2.3rem;
     width: 2.3rem;
   }
+
+  section.itemsContainer , section.cartPage , .profilePage, .previousOrders , div.homePage   {
+    padding : 20px 30px 100px 30px;
+  }
+
+
+  /* ==== Victual Component ====*/
+
+  section.itemsContainer > div{
+   padding : 0px 20px;
+  }
+
+section.itemsContainer nav.navTabs > *.tabs{
+  font-size : 1.8rem;
+
+}
+
+section.itemsContainer nav.navTabs > .activeTab{
+  font-size : 2rem;
 }
 
 
-/* @media only screen and (min-width: 940px) {
+/* ==== Item Component ====*/
 
+.itemContainer{
+  margin: 20px;
+  height : 27vh;
+}
+.itemContainer img{
+  height : 100%;
+}
+
+div.itemInfo{
+  padding : 15px 25px;
+}
+
+div.itemInfo div p{
+  font-size : 2.8vh;
+  font-weight: 400;
+}
+
+div.itemInfo .svg{
+  height : 1.7rem;
+  width: 1.7rem;
+}
+
+div.itemInfo > p.price{
+  font-size : 1.35em;
+  padding : 10px 0;
+}
+
+div.itemInfo a.moreDetails , section.cartPage section a{
+ font-size: 1.35rem;
+}
+
+/* ==== ItemDetails Component ==== */ 
+
+.itemDetailsContainer section{
+  padding : 15px;
+}
+
+.itemDetailsContainer section >*{
+  flex-grow: 1;
+}
+
+.img_container{
+  padding: 20px 30px;
+  height : 40vh;
+}
+.info {
+  padding : 20px;
+  height : 15vh;
+}
+
+.info > .ingredients {
+  font-size: 1.5rem;
+}
+
+.info > .actual_ingredients{
+  font-size: 1.25rem;
+}
+
+.info > .price {
+  font-size: 1.25rem;
+}
+
+.button_container{
+  padding : 10px;
+}
+
+/* ==== Cart Component ====*/
+
+
+form p.clearCart{
+  font-size: 1.2rem;
+  padding : 0px 20px;
+ }
+section.cartPage > form > *:not(:first-child){
+  margin-top : 25px;
+}
+
+/* ==== DisplayTotal Component ==== */
+
+.totalPage > p{
+  font-size: 1.4rem;
+  padding : 15px;
+}
+
+
+/* ====  Login & Create Account Component ==== */
+section.logIn, section.createAccount {
+  padding : 120px 175px 200px 175px;
+ }
+
+.logInForm  input, .createAccountForm input{
+  padding : 15px;
+  font-size: 1.6rem;
+}
+
+.logInForm > button, .createAccountForm > button{
+  padding : 15px 0px;
+  margin-top: 25px;
+}
+
+.logInForm p, .createAccountForm p{
+  margin-top: 15px;
+  font-size: 1.3rem;
+}
+
+/* ==== Missing Component ==== */
+
+
+.missingPage h3{
+  font-size: 2rem;
+}
+
+.missingPage p{
+  font-size: 1.4rem;
+  width : 80%;
+}
+
+.missingPage button{
+  width : 80vw;
+  margin: 150px 50px;
+  font-size: 25px;
+  border-radius : 15px;
+}
+
+/* ==== Profile Component====*/
+
+.profilePage div , div.previousOrder{
+  padding : 7px 50px;
+}
+
+.profilePage button {
+  font-size: 1.3rem;
+}
+
+.prevOrders_container{
+  padding : 5px 10px ;
+}
+
+}
+
+
+
+
+
+
+/* @media only screen and (min-width: 940px) {
+  nav.navRoutes ul{
+    width: 60%;
+  }
 } */
