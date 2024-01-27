@@ -39,6 +39,6 @@ export default function Item({item, state = null}) {
 //<p >In Cart : {existingItem.numberInCart}</p>
 function LinkToItemDetails({item , state = null}) {
 return (
-  <Link to={`${item.id}`} className="moreDetails" state={state}>more details</Link>
+  <Link to={`${item.id}`} className="moreDetails link" state={state}>more details</Link>
   )
 }

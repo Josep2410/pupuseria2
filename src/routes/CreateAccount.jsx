@@ -106,7 +106,7 @@ export default function CreateAccount() {
             />
         </div>
         <button type='submit'>Create Account</button>
-        <p>Already have an account ? <Link to='/login'>Log in</Link></p>
+        <p>Already have an account ? <Link to='/login' className='link'>Log in</Link></p>
         {error && <DisplayMessage message={error.message}/>}
         {createAccountSuccessfully && <DisplayMessage error={false} message="Successfully created account"/>}
       </form>

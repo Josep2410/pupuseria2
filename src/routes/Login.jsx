@@ -62,7 +62,7 @@ export default function Login() {
         onChange={handleChange}/>
       </div>
       <button>LOGIN</button>
-      <p>Don't have an account ? <Link to="/createAccount">Create one</Link></p>
+      <p>Don't have an account ? <Link to="/createAccount" className='link'>Create one</Link></p>
       {loginError && <DisplayMessage message={ loginError.message} />}
       {location.state?.message && <DisplayMessage message={location.state.message}/>}
    </form>

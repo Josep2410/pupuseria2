@@ -19,14 +19,16 @@ export default function Victual({victualItems, categories}) {
   return (
     <section className="itemsContainer">
       <Title />
-      <nav className="navTabs">
-        <Link to="." className={!displayFilter ? "activeTab" : "tabs"}>All</Link>
-       {filterTabs}
-      </nav>
-      {
-        displayItems.length ? (displayItems.map(item=>(<Item key={item.id} item={item} state={displayItems}/>))) 
-        : <p>Loading...</p>
-      }
+      <div>
+        <nav className="navTabs">
+          <Link to="." className={!displayFilter ? "activeTab" : "tabs"}>All</Link>
+        {filterTabs}
+        </nav>
+        {
+          displayItems.length ? (displayItems.map(item=>(<Item key={item.id} item={item} state={displayItems}/>))) 
+          : <p>Loading...</p>
+        }
+      </div>
     </section>
   )
 }

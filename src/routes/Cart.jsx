@@ -17,9 +17,9 @@ export default function Cart() {
       {displayCartItems.length
         ? 
         (
-        <form onSubmit={(e)=> e.preventDefault()} >
+        <form onSubmit={(e)=> e.preventDefault()} className='cartForm' >
           {displayCartItems}
-          <p onClick={clearCart} style={{color : 'red', textDecoration: 'underline'}}>CLEAR CART</p>
+          <p onClick={clearCart} className='clearCart'>CLEAR CART</p>
           <DisplayTotal/>
           <button><Link to='/checkout'>Checkout</Link></button>
         </form>
