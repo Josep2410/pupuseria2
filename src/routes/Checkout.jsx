@@ -1,3 +1,4 @@
+
 import React , {useState ,useContext, useEffect } from 'react'
 import { useNavigate} from 'react-router-dom'
 import DisplayTotal from '../components/DisplayTotal'
@@ -50,7 +51,6 @@ export default function Checkout() {
        <div className="checkoutDiv">
        <DisplayTotal setTotal={setTotal} />
          <form id="submitOrderForm" onSubmit={handleSubmit} >
-           <input type="hidden" value={currentUser.name} name="to_name"/>
            <input type="hidden" value={currentUser.email} name="recipient" />
            <input type="hidden" value={emailBody} name="message" />
            <input type="hidden" value={confirmationNum} name="confirmationNumber" />
