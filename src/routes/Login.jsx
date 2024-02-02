@@ -1,28 +1,39 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext , useRef , useEffect} from 'react'
 import { Link , useLocation, useNavigate} from 'react-router-dom'
 import Context from '../Context/MyContext'
 import DisplayMessage from '../components/DisplayMessage'
 
 export default function Login() {
+  
+//set up Auth in Context
 
-  /* Idea : combine email and password states*/
+  const emailRef = useRef()
+  const errRef = useRef()
+
   const navigate = useNavigate()
   const {users, setCurrentUser} = useContext(Context)
+
   const [login, setLogin] = useState({email : '' , password : ''})
-  const [loginError, setLoginError] = useState(null)
+  const [loginError, setLoginError] = useState('')
+  const [success, setSuccess] = useState(false)
+
   const location = useLocation()
   const intendedPath = location.state?.intendedPath || '/profile'
 
+
+  useEffect(() => {
+    emailRef.current.focus()
+  }, [])
+
   const submitForm = (e) => {
     e.preventDefault()
-    setLoginError(null)
-
+    setLoginError('')
     try{
       const existingUser = users.find(user => user.email === (login.email).toLowerCase())
       
       if(!existingUser) throw new Error('No account found with email')
       const {password} = existingUser
-      if(!(password === login.password)) throw new Error('Incorrect Password')
+      if(password !== login.password) throw new Error('Incorrect Password')
 
       setCurrentUser(existingUser)
       setLogin({email : '' , password : ''})
@@ -30,7 +41,9 @@ export default function Login() {
       navigate(`${intendedPath}`, {replace : true} )
     
     }catch(err){
-      setLoginError(err)
+      setLoginError(err.message)
+      console.log(err.message)
+      errRef.current.focus()
     }
   }
 
@@ -41,31 +54,37 @@ export default function Login() {
 
   return (
   <section className="logIn">
+    <p className={loginError ? 'errmsg' : 'offscreen'}  aria-live='assertive'>{loginError}</p>
+    <h1>Sign in to your account</h1>
     <form className="logInForm" onSubmit={submitForm}>
-      <h1>Sign in to your account</h1>
-      <div>
-      <label htmlFor="loginEmail">Email</label>
+      <label htmlFor="loginEmail" className="offscreenLabel">Email</label>
       <input 
+       ref={emailRef}
         id="loginEmail" 
         name="email"
         type="email"
         placeholder='Email' 
         value={login.email} 
-        onChange={handleChange}/>
-      <label htmlFor="loginPWD">Password</label>
+        onChange={handleChange}
+        autoComplete='off'
+        required
+        />
+      <label htmlFor="loginPWD" className="offscreenLabel">Password</label>
       <input 
         id="loginPWD" 
         name="password"
         type="password" 
         placeholder='Password'
         value={login.password}
-        onChange={handleChange}/>
-      </div>
-      <button>LOGIN</button>
-      <p>Don't have an account ? <Link to="/createAccount" className='link'>Create one</Link></p>
-      {loginError && <DisplayMessage message={ loginError.message} />}
-      {location.state?.message && <DisplayMessage message={location.state.message}/>}
-   </form>
+        onChange={handleChange}
+        required
+        />
+  
+      <button disabled={!login.email || !login.password ? true : false}>LOGIN</button>
+    </form>
+    <p> Don't have an account ? <Link to="/createAccount" className='link'>Create one</Link></p>
+   {/*  {loginError && <DisplayMessage message={loginError}/>} */}
+    {location.state?.message && <DisplayMessage message={location.state.message} />}
 
   </section>
   )

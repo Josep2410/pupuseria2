@@ -480,7 +480,7 @@ form p.clearCart{
 
  /* ====== Login & Create Account Component ========= */
 
- .createAccount{
+ .createAccount , .logIn{
   padding : 80px 40px 100px 40px;
   text-align: center;
   display : flex;
@@ -488,7 +488,7 @@ form p.clearCart{
   align-items: center;
  }
 
- .createAccount > form{
+ .createAccount > form , .logIn > form{
   display : flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -498,7 +498,7 @@ form p.clearCart{
   padding-bottom: 1rem;
  }
 
- .createAccount > form button{
+ .createAccount > form button, .logIn > form button{
     margin-top: 15px;
  }
 
@@ -530,10 +530,12 @@ form p.clearCart{
 .errmsg{
   color : red;
   font-size: 1.25rem;
- 
+  font-weight: 600;
 }
  
-
+.createAccount p, .logIn p{
+  font-size: 1.15rem;
+}
 
 
 
